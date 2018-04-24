@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LifeGame
 {
-	class Program
+	internal class Program
 	{
-		static void Main(string[] args)
+		internal static void Main()
 		{
+
+			StartGame game = new StartGame(40, 10);
+			game.PlayGame();
 		}
 	}
 }
