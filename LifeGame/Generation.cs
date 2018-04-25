@@ -11,6 +11,7 @@ namespace LifeGame
 		{
 			countGeneration += 1;
 		}
+
 		public void show()
 		{
 			Console.Write($"{ generation}");

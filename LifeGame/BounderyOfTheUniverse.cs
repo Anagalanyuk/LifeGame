@@ -12,23 +12,24 @@ namespace LifeGame
 		{
 			this.border = border;
 			this.length = length + 1;
-			this.height = height + 2;
+			this.height = height + 1;
 		}
 
 		public void Show()
 		{
-			for (int topBotton = 0; topBotton <= length; ++topBotton)
+			for (int topBotton = 0; topBotton <= height; ++topBotton)
 			{
 				Console.SetCursorPosition(topBotton, 2);
 				Console.Write(border);
-				Console.SetCursorPosition(topBotton, height + 1);
+				Console.SetCursorPosition(topBotton, length + 2);
 				Console.Write(border);
 			}
-			for (int leftRight = 2; leftRight <= height; ++leftRight)
+
+			for (int leftRight = 2; leftRight <= length + 1; ++leftRight)
 			{
 				Console.SetCursorPosition(0 , leftRight);
 				Console.Write(border);
-				Console.SetCursorPosition(length, leftRight);
+				Console.SetCursorPosition(height, leftRight);
 				Console.Write(border);
 				Console.WriteLine();
 			}

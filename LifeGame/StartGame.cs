@@ -31,7 +31,7 @@ namespace LifeGame
 			Console.ResetColor();
 			while(true)
 			{
-				Console.SetCursorPosition(0, 14);
+				Console.SetCursorPosition(0, universe.GetRows() + 4);
 				var keyCursor = Console.ReadKey().Key;
 				switch (keyCursor)
 				{
