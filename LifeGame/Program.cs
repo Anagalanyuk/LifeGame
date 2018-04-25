@@ -9,6 +9,8 @@ namespace LifeGame
 
 			StartGame game = new StartGame(40, 10);
 			game.PlayGame();
+
+
 		}
 	}
 }

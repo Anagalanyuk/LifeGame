@@ -20,7 +20,6 @@ namespace LifeGame
 					universe[i, j] = new Cell(' ');
 				}
 			}
-			universe[0, 0].Set('X');
 		}
 
 		public int GetRows()

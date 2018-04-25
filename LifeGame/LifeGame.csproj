@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="BounderyOfTheUniverse.cs" />
     <Compile Include="Cell.cs" />
+    <Compile Include="CursorX.cs" />
     <Compile Include="Generation.cs" />
     <Compile Include="ControlKeys.cs" />
     <Compile Include="Program.cs" />

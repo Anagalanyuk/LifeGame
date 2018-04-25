@@ -3,73 +3,57 @@
 	public class ControlKeys
 	{
 		private Universe universe;
-		private int rows = 0;
-		private int columns = 0;
+		private CursorX cursor;
+	//	private int rows = 0;
+		//private int columns = 0;
 
-		public ControlKeys(Universe universe)
+		public ControlKeys(Universe universe, CursorX cursor)
 		{
 			this.universe = universe;
-		}
-
-		public void StepsRight()
-		{
-			if (rows != universe.GetRows() - 1)
-			{
-				Cell step = universe[rows + 1, columns];
-				universe[rows + 1, columns] = universe[rows, columns];
-				universe[rows, columns] = step;
-				rows++;
-			}
+			this.cursor = cursor;
 		}
 
 		public void StepLeft()
 		{
-			if (rows != 0)
+			if (cursor.GetX() > 0)
 			{
-				Cell step = universe[rows - 1, columns];
-				universe[rows - 1, columns] = universe[rows, columns];
-				universe[rows, columns] = step;
-				--rows;
+				cursor.SetX(cursor.GetX() - 1);
 			}
 		}
 
-		public void StepDown()
+		public void StepRight()
 		{
-			if (columns != universe.GetColumns() - 1)
+			if(cursor.GetX() < universe.GetRows() - 1)
 			{
-				Cell step = universe[rows, columns + 1];
-				universe[rows, columns + 1] = universe[rows, columns];
-				universe[rows, columns] = step;
-				++columns;
+				cursor.SetX(cursor.GetX() + 1);
 			}
 		}
 
 		public void StepUp()
 		{
-			if (columns != 0)
+			if(cursor.GetY() > 0)
 			{
-				Cell step = universe[rows, columns - 1];
-				universe[rows, columns - 1] = universe[rows, columns];
-				universe[rows, columns] = step;
-				--columns;
+				cursor.SetY(cursor.GetY() - 1);
 			}
 		}
 
-		public void KeySpace()
+		public void StepDown()
 		{
-			if (rows != universe.GetRows() - 1)
+			if( cursor.GetY() < universe.GetColumns() - 1)
 			{
-				Cell life = new Cell('0');
-				universe[rows + 1, columns] = universe[rows, columns];
-				universe[rows, columns] = life;
-				++rows;
+				cursor.SetY(cursor.GetY() + 1);
+			}
+		}
+
+		public void KeyEnter()
+		{
+			if (universe[cursor.GetX(), cursor.GetY()].Get() == ' ')
+			{
+				universe[cursor.GetX(), cursor.GetY()].Set('0');
 			}
 			else
 			{
-				Cell life = new Cell('0');
-				universe[rows - 1, columns] = universe[rows, columns];
-				universe[rows, columns] = life;
-				--rows;
+				universe[cursor.GetX(), cursor.GetY()].Set(' ');
 			}
 		}
 	}

@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LifeGame
 {
-	class StartGame
+	public class StartGame
 	{
 		private Generation generation;
 		private Universe universe;
 		private BounderyOfTheUniverse border;
 		private ControlKeys key;
 		private Show game;
+		private CursorX cursor;
 
 		public StartGame(int rows,int columns)
 		{
@@ -20,7 +17,8 @@ namespace LifeGame
 			universe = new Universe(rows, columns);
 			game = new Show(universe);
 			border = new BounderyOfTheUniverse(universe.GetRows(),universe.GetColumns(),'+');
-			key = new ControlKeys(universe);
+			cursor = new CursorX();
+			key = new ControlKeys(universe, cursor);
 		}
 
 		public void PlayGame()
@@ -28,33 +26,46 @@ namespace LifeGame
 			generation.show();
 			border.Show();
 			game.Print();
+			cursor.Show();
+
+			Console.ResetColor();
 			while(true)
 			{
+				Console.SetCursorPosition(0, 14);
 				var keyCursor = Console.ReadKey().Key;
 				switch (keyCursor)
 				{
 					case ConsoleKey.LeftArrow:
 						{
-							key.StepLeft();
 							game.Print();
+							key.StepLeft();
+							cursor.Show();
 							break;
 						}
 					case ConsoleKey.RightArrow:
 						{
-							key.StepsRight();
 							game.Print();
+							key.StepRight();
+							cursor.Show();
 							break;
 						}
 					case ConsoleKey.UpArrow:
 						{
-							key.StepUp();
 							game.Print();
+							key.StepUp();
+							cursor.Show();
 							break;
 						}
 					case ConsoleKey.DownArrow:
 						{
-							key.StepDown();
 							game.Print();
+							key.StepDown();
+							cursor.Show();
+							break;
+						}
+					case ConsoleKey.Enter:
+						{
+							key.KeyEnter();
 							break;
 						}
 				}	
