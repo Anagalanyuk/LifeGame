@@ -11,7 +11,7 @@ namespace LifeGame
 		List<Universe> history;
 		int repeatGeneration = 0;
 
-		public Universe(int rows, int columns)
+		public Universe()
 		{
 			history = new List<Universe>();
 			if (rows < 0 || columns < 0)
@@ -20,8 +20,8 @@ namespace LifeGame
 			}
 			else
 			{
-				this.rows = rows;
-				this.columns = columns;
+				rows = 10;
+				columns = 40;
 				universe = new Cell[rows, columns];
 				for (int i = 0; i < rows; ++i)
 				{

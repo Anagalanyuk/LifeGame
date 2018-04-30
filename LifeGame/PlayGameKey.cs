@@ -2,61 +2,24 @@
 
 namespace LifeGame
 {
-	public sealed class ControlKeys
+	public sealed class PlayGameKey
 	{
 		private Universe universe;
 		private CursorX cursor;
 		private Generation generation;
 
-		public ControlKeys(Universe universe, CursorX cursor, Generation generation)
+		public PlayGameKey(Universe universe, CursorX cursor, Generation generation)
 		{
 			this.universe = universe;
 			this.cursor = cursor;
 			this.generation = generation;
 		}
 
-		public void StepLeft()
-		{
-			if (cursor.GetX() > 0)
-			{
-				cursor.SetX(cursor.GetX() - 1);
-			}
-		}
-
-		public void StepRight()
-		{
-			if(cursor.GetX() < universe.GetColumns() - 1)
-			{
-				cursor.SetX(cursor.GetX() + 1);
-			}
-		}
-
-		public void StepUp()
-		{
-			if(cursor.GetY() > 0)
-			{
-				cursor.SetY(cursor.GetY() - 1);
-			}
-		}
-
-		public void StepDown()
-		{
-			if( cursor.GetY() < universe.GetRows() - 1)
-			{
-				cursor.SetY(cursor.GetY() + 1);
-			}
-		}
-
-		public void KeyEnter()
-		{
-				universe[cursor.GetY(), cursor.GetX()].ChancheState();
-		}
-
 		public void KeySpace()
 		{
 			if (universe.GetrepeatGenaration() != universe.GetRows() * universe.GetColumns())
 			{
-				universe.GetList().Add(new Universe(universe.GetRows(), universe.GetColumns()));
+				universe.GetList().Add(new Universe());
 				for (int i = 0; i < universe.GetRows(); ++i)
 				{
 					for (int j = 0; j < universe.GetColumns(); ++j)

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace LifeGame
 {
@@ -7,18 +8,18 @@ namespace LifeGame
 		private Generation generation;
 		private Universe universe;
 		private BounderyOfTheUniverse border;
-		private ControlKeys key;
+		private PlayGameKey key;
 		private Show game;
 		private CursorX cursor;
 
-		public StartGame(int rows,int columns)
+		public StartGame()
 		{
 			generation = new Generation();
-			universe = new Universe(rows, columns);
+			universe = new Universe();
 			game = new Show(universe);
 			border = new BounderyOfTheUniverse(universe.GetRows(),universe.GetColumns(),'+');
 			cursor = new CursorX();
-			key = new ControlKeys(universe, cursor,generation);
+			key = new PlayGameKey(universe, cursor,generation);
 		}
 
 		public void PlayGame()
@@ -28,47 +29,27 @@ namespace LifeGame
 			game.Print();
 			cursor.Show();
 			Console.SetCursorPosition(0, universe.GetRows() + 4);
-			var keyCursor = ConsoleKey.Zoom;// = Console.ReadKey().Key;
+			var keyCursor = ConsoleKey.Zoom;
 			Console.ResetColor();
 			while (keyCursor != ConsoleKey.Spacebar)
 			{
 				Console.SetCursorPosition(0, universe.GetRows() + 4);
 				keyCursor = Console.ReadKey().Key;
-				switch (keyCursor)
+				List<IMoves> moves = new List<IMoves>();
+				moves.Add(new StepRight(universe, cursor));
+				moves.Add(new StepLeft(universe, cursor));
+				moves.Add(new StepDown(universe, cursor));
+				moves.Add(new StepUP(universe, cursor));
+				moves.Add(new KeyEnter(universe, cursor));
+				for(int index = 0; index < moves.Count; ++index)
 				{
-					case ConsoleKey.LeftArrow:
-						{
-							game.Print();
-							key.StepLeft();
-							cursor.Show();
-							break;
-						}
-					case ConsoleKey.RightArrow:
-						{
-							game.Print();
-							key.StepRight();
-							cursor.Show();
-							break;
-						}
-					case ConsoleKey.UpArrow:
-						{
-							game.Print();
-							key.StepUp();
-							cursor.Show();
-							break;
-						}
-					case ConsoleKey.DownArrow:
-						{
-							game.Print();
-							key.StepDown();
-							cursor.Show();
-							break;
-						}
-					case ConsoleKey.Enter:
-						{
-							key.KeyEnter();
-							break;
-						}
+					if (moves[index].GetArrow() == keyCursor)
+					{
+						game.Print();
+						moves[index].Move();
+						cursor.Show();
+						break;
+					}
 				}
 			}
 			while (true)
@@ -81,7 +62,7 @@ namespace LifeGame
 					generation.Show();
 					game.Print();
 					Console.SetCursorPosition(0, universe.GetRows() + 4);
-					//System.Threading.Thread.Sleep(3000);
+					System.Threading.Thread.Sleep(300);
 					keyCursor = Console.ReadKey().Key;
 				}
 			}

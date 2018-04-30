@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace LifeGame
+﻿namespace LifeGame
 {
 	internal class Program
 	{
 		internal static void Main()
 		{
-			StartGame game = new StartGame(10, 40);
+			StartGame game = new StartGame();
 			game.PlayGame();
 		}
 	}
