@@ -2,7 +2,7 @@
 
 namespace LifeGame
 {
-	public class BounderyOfTheUniverse
+	public sealed class BounderyOfTheUniverse
 	{
 		private char border;
 		private int length;

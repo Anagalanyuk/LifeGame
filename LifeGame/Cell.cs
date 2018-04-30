@@ -2,27 +2,37 @@
 
 namespace LifeGame
 {
-	public class Cell
+	public sealed  class Cell : ICloneable
 	{
-		private char cell;
+		private CellCondition cell; 
 
-		public Cell(char cell)
+		public Cell()
 		{
-			this.cell = cell;
+			cell = CellCondition.Death;
 		}
 
-		public char Set(char cell)
+		public void ChancheState()
 		{
-			return this.cell = cell;
-		}
-		public char Get()
-		{
-			return cell;
+			if (cell == CellCondition.Live)
+			{
+				cell = CellCondition.Death;
+			}
+			else
+			{
+				cell = CellCondition.Live;
+			}
 		}
 
-		public override string ToString()
+		public object Clone()
 		{
-			return cell.ToString();
+			Cell clon = new Cell();
+			clon.cell = this.cell;
+			return clon; 
+		}
+
+		public CellCondition GetCell()
+		{
+			return cell; 
 		}
 	}
 }

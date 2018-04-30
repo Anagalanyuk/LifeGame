@@ -2,7 +2,7 @@
 
 namespace LifeGame
 {
-	public class StartGame
+	public  sealed class StartGame
 	{
 		private Generation generation;
 		private Universe universe;
@@ -18,21 +18,22 @@ namespace LifeGame
 			game = new Show(universe);
 			border = new BounderyOfTheUniverse(universe.GetRows(),universe.GetColumns(),'+');
 			cursor = new CursorX();
-			key = new ControlKeys(universe, cursor);
+			key = new ControlKeys(universe, cursor,generation);
 		}
 
 		public void PlayGame()
 		{
-			generation.show();
+			generation.Show();
 			border.Show();
 			game.Print();
 			cursor.Show();
-
+			Console.SetCursorPosition(0, universe.GetRows() + 4);
+			var keyCursor = ConsoleKey.Zoom;// = Console.ReadKey().Key;
 			Console.ResetColor();
-			while(true)
+			while (keyCursor != ConsoleKey.Spacebar)
 			{
 				Console.SetCursorPosition(0, universe.GetRows() + 4);
-				var keyCursor = Console.ReadKey().Key;
+				keyCursor = Console.ReadKey().Key;
 				switch (keyCursor)
 				{
 					case ConsoleKey.LeftArrow:
@@ -68,7 +69,21 @@ namespace LifeGame
 							key.KeyEnter();
 							break;
 						}
-				}	
+				}
+			}
+			while (true)
+			{
+				Console.SetCursorPosition(0, universe.GetRows() + 4);
+				if (keyCursor == ConsoleKey.Spacebar)
+				{
+					key.KeySpace();
+					Console.SetCursorPosition(0,0);
+					generation.Show();
+					game.Print();
+					Console.SetCursorPosition(0, universe.GetRows() + 4);
+					//System.Threading.Thread.Sleep(3000);
+					keyCursor = Console.ReadKey().Key;
+				}
 			}
 		}
 	}

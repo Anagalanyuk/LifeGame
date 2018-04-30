@@ -2,7 +2,7 @@
 
 namespace LifeGame
 {
-	public class CursorX
+	public sealed class CursorX
 	{
 		private char X;
 		int positinX;
@@ -33,14 +33,6 @@ namespace LifeGame
 		public int GetY()
 		{
 			return positinY;
-		}
-
-		public void StepRight()
-		{
-			if (positinX < 40)
-			{
-				positinX += 1;
-			}
 		}
 
 		public void Show()

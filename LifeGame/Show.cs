@@ -2,7 +2,7 @@
 
 namespace LifeGame
 {
-	public class Show
+	public sealed class Show
 	{
 		private Universe universe;
 
@@ -19,23 +19,22 @@ namespace LifeGame
 			{
 				for (int j = 0; j < universe.GetColumns(); ++j)
 				{
-					if (universe[i, j].Get() == 'X')
+					if(universe[i,j].GetCell() ==  CellCondition.Death)
 					{
-						//Console.SetCursorPosition(1 + i, 3 + j);
-						Console.Write(universe[x, y]);
-						Console.ResetColor();
+						Console.SetCursorPosition(x + j, y + i);
+						Console.Write(' ');
 					}
 					else
 					{
 						Console.ForegroundColor = ConsoleColor.Green;
 						Console.SetCursorPosition(x + j, y + i);
-						Console.Write(universe[i, j]);
+						Console.Write('0');
+						Console.ResetColor();
 					}
 				}
 				Console.WriteLine();
 			}
 			Console.ResetColor();
-			//Console.WriteLine();
 		}
 	}
 }

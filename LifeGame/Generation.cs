@@ -2,7 +2,7 @@
 
 namespace LifeGame
 {
-	public class Generation
+	public sealed class Generation
 	{
 		private string generation = "Generetion: ";
 		private int countGeneration = 0;
@@ -12,7 +12,12 @@ namespace LifeGame
 			countGeneration += 1;
 		}
 
-		public void show()
+		public int GetCount()
+		{
+			return countGeneration;
+		}
+
+		public void Show()
 		{
 			Console.Write($"{ generation}");
 			Console.ForegroundColor = ConsoleColor.Blue;
