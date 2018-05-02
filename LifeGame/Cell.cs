@@ -11,7 +11,7 @@ namespace LifeGame
 			cell = CellCondition.Death;
 		}
 
-		public void ChancheState()
+		public void ChangeState()
 		{
 			if (cell == CellCondition.Live)
 			{
@@ -25,9 +25,9 @@ namespace LifeGame
 
 		public object Clone()
 		{
-			Cell clon = new Cell();
-			clon.cell = this.cell;
-			return clon; 
+			Cell clone = new Cell();
+			clone.cell = this.cell;
+			return clone; 
 		}
 
 		public CellCondition GetCell() { return cell; }

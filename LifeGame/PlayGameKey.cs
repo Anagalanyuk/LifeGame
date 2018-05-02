@@ -168,7 +168,7 @@ namespace LifeGame
 								}
 								if (countLife == 3)
 								{
-									universe[indexRows, indexColumns].ChancheState();
+									universe[indexRows, indexColumns].ChangeState();
 								}
 								countLife = 0;
 							}
@@ -303,7 +303,7 @@ namespace LifeGame
 								}
 								if (countLife < 3 || countLife > 4)
 								{
-									universe[indexRows, indexColumns].ChancheState();
+									universe[indexRows, indexColumns].ChangeState();
 								}
 								countLife = 0;
 							}

@@ -17,19 +17,19 @@ namespace LifeGame
 
 		public void Show()
 		{
-			for (int topBotton = 0; topBotton <= height; ++topBotton)
+			for (int upperLowerBounds = 0; upperLowerBounds <= height; ++upperLowerBounds)
 			{
-				Console.SetCursorPosition(topBotton, 2);
+				Console.SetCursorPosition(upperLowerBounds, 2);
 				Console.Write(border);
-				Console.SetCursorPosition(topBotton, length + 2);
+				Console.SetCursorPosition(upperLowerBounds, length + 2);
 				Console.Write(border);
 			}
 
-			for (int leftRight = 2; leftRight <= length + 1; ++leftRight)
+			for (int leftRightBounds = 2; leftRightBounds <= length + 1; ++leftRightBounds)
 			{
-				Console.SetCursorPosition(0 , leftRight);
+				Console.SetCursorPosition(0 , leftRightBounds);
 				Console.Write(border);
-				Console.SetCursorPosition(height, leftRight);
+				Console.SetCursorPosition(height, leftRightBounds);
 				Console.Write(border);
 				Console.WriteLine();
 			}

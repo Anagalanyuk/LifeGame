@@ -5,24 +5,24 @@ namespace LifeGame
 	public sealed class CursorX
 	{
 		private char X = 'X';
-		int positinX;
-		int positinY;
+		int positionX;
+		int positionY;
 
 		public CursorX()
 		{
 		}
 
-		public int SetX(int x) { return positinX = x; }
+		public int SetX(int x) { return positionX = x; }
 
-		public int GetX() { return positinX; }
+		public int GetX() { return positionX; }
 
-		public int SetY(int y) { return positinY = y; }
+		public int SetY(int y) { return positionY = y; }
 
-		public int GetY() {return positinY;}
+		public int GetY() {return positionY;}
 
 		public void Show()
 		{
-			Console.SetCursorPosition(positinX + 1, positinY + 3);
+			Console.SetCursorPosition(positionX + 1, positionY + 3);
 			Console.ForegroundColor = ConsoleColor.Red;
 			Console.Write(X);
 			Console.ResetColor();

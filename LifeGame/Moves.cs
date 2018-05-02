@@ -133,7 +133,7 @@ public class KeyEnter:IMoves
 
 	public void Move()
 	{
-		universe[cursor.GetY(), cursor.GetX()].ChancheState();
+		universe[cursor.GetY(), cursor.GetX()].ChangeState();
 	}
 
 	public ConsoleKey GetArrow()
