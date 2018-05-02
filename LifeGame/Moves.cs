@@ -9,7 +9,7 @@ namespace LifeGame
 		ConsoleKey GetArrow();
 	}
 
-	public class StepRight:IMoves
+	public class StepRight : IMoves
 	{
 		private Universe universe;
 		private CursorX cursor;
@@ -30,13 +30,10 @@ namespace LifeGame
 			}
 		}
 
-		public ConsoleKey GetArrow()
-		{
-			return arrow;
-		}
+		public ConsoleKey GetArrow() { return arrow; }
 	}
 
-	public class StepLeft:IMoves
+	public class StepLeft : IMoves
 	{
 		private Universe universe;
 		private CursorX cursor;
@@ -57,14 +54,11 @@ namespace LifeGame
 			}
 		}
 
-		public ConsoleKey GetArrow()
-		{
-			return arrow;
-		}
+		public ConsoleKey GetArrow() { return arrow; }
 	}
 } 
 
-public class StepUP:IMoves
+public class StepUP : IMoves
 {
 	private Universe universe;
 	private CursorX cursor;
@@ -85,10 +79,7 @@ public class StepUP:IMoves
 		}
 	}
 
-	public ConsoleKey GetArrow()
-	{
-		return arrow;
-	}
+	public ConsoleKey GetArrow() { return arrow; }
 }
 
 public class StepDown : IMoves
@@ -112,19 +103,16 @@ public class StepDown : IMoves
 		}
 	}
 
-	public ConsoleKey GetArrow()
-	{
-		return arrow;
-	}
+	public ConsoleKey GetArrow() { return arrow; }
 }
 
-public class KeyEnter:IMoves
+public class KeyEnter : IMoves
 {
 	private Universe universe;
 	private CursorX cursor;
 	private ConsoleKey arrow;
 
-	public KeyEnter(Universe universe,CursorX cursor)
+	public KeyEnter(Universe universe, CursorX cursor)
 	{
 		this.universe = universe;
 		this.cursor = cursor;
@@ -136,8 +124,5 @@ public class KeyEnter:IMoves
 		universe[cursor.GetY(), cursor.GetX()].ChangeState();
 	}
 
-	public ConsoleKey GetArrow()
-	{
-		return arrow;
-	}
+	public ConsoleKey GetArrow() { return arrow; }
 }
