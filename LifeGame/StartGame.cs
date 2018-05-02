@@ -17,7 +17,7 @@ namespace LifeGame
 			generation = new Generation();
 			universe = new Universe();
 			game = new Show(universe);
-			border = new BounderyOfTheUniverse(universe.GetRows(), universe.GetColumns(),'+');
+			border = new BounderyOfTheUniverse(universe.GetRows(), universe.GetColumns(), '+');
 			cursor = new CursorX();
 			key = new PlayGameKey(universe, cursor, generation);
 		}
@@ -41,7 +41,7 @@ namespace LifeGame
 				moves.Add(new StepDown(universe, cursor));
 				moves.Add(new StepUP(universe, cursor));
 				moves.Add(new KeyEnter(universe, cursor));
-				for(int index = 0; index < moves.Count; ++index)
+				for (int index = 0; index < moves.Count; ++index)
 				{
 					if (moves[index].GetArrow() == keyCursor)
 					{

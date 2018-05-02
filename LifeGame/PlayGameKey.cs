@@ -316,7 +316,7 @@ namespace LifeGame
 				Console.SetCursorPosition(15, 0);
 				Console.WriteLine("Game over");
 			}
-			if(generation.GetCount() > 1)
+			if (generation.GetCount() > 1)
 			{
 				for (int indexGeneration = 0; indexGeneration < generation.GetCount(); ++indexGeneration)
 				{
@@ -325,7 +325,7 @@ namespace LifeGame
 					{
 						for (int columns = 0; columns < universe.GetColumns(); ++columns)
 						{
-							if(universe.GetList()[indexGeneration][rows, columns].GetCell() == universe[rows, columns].GetCell())
+							if (universe.GetList()[indexGeneration][rows, columns].GetCell() == universe[rows, columns].GetCell())
 							{
 								universe.AddrepeatGeneration();
 							}

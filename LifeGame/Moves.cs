@@ -24,7 +24,7 @@ namespace LifeGame
 
 		public void Move()
 		{
-			if(cursor.GetX() < universe.GetColumns() - 1)
+			if (cursor.GetX() < universe.GetColumns() - 1)
 			{
 				cursor.SetX(cursor.GetX() + 1);
 			}
@@ -51,7 +51,7 @@ namespace LifeGame
 
 		public void Move()
 		{
-			if(cursor.GetX()  > 0)
+			if (cursor.GetX()  > 0)
 			{
 				cursor.SetX(cursor.GetX() - 1);
 			}
