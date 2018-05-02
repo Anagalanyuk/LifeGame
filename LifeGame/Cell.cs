@@ -26,7 +26,7 @@ namespace LifeGame
 		public object Clone()
 		{
 			Cell clone = new Cell();
-			clone.cell = this.cell;
+			clone.cell = cell;
 			return clone; 
 		}
 
