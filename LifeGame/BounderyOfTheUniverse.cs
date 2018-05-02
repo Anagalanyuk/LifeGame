@@ -5,14 +5,14 @@ namespace LifeGame
 	public sealed class BounderyOfTheUniverse
 	{
 		private char border;
-		private int length;
-		private int height;
+		private int length = 3;
+		private int height = 1;
 
 		public BounderyOfTheUniverse(int length, int height, char border)
 		{
 			this.border = border;
-			this.length = length + 1;
-			this.height = height + 1;
+			this.length += length;
+			this.height += height;
 		}
 
 		public void Show()
@@ -21,11 +21,11 @@ namespace LifeGame
 			{
 				Console.SetCursorPosition(upperLowerBounds, 2);
 				Console.Write(border);
-				Console.SetCursorPosition(upperLowerBounds, length + 2);
+				Console.SetCursorPosition(upperLowerBounds, length);
 				Console.Write(border);
 			}
 
-			for (int leftRightBounds = 2; leftRightBounds <= length + 1; ++leftRightBounds)
+			for (int leftRightBounds = 2; leftRightBounds <= length; ++leftRightBounds)
 			{
 				Console.SetCursorPosition(0 , leftRightBounds);
 				Console.Write(border);

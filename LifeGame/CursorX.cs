@@ -4,9 +4,10 @@ namespace LifeGame
 {
 	public sealed class CursorX
 	{
-		private char X = 'X';
+		private char cursor = 'X';
 		private int x;
 		private int y;
+
 
 		public int SetX(int x) { return this.x = x; }
 
@@ -18,9 +19,11 @@ namespace LifeGame
 
 		public void Show()
 		{
-			Console.SetCursorPosition(x + 1, y + 3);
+			int displacementX = 1;
+			int displacementY = 3;
+			Console.SetCursorPosition(x + displacementX, y + displacementY);
 			Console.ForegroundColor = ConsoleColor.Red;
-			Console.Write(X);
+			Console.Write(cursor);
 			Console.ResetColor();
 		}
 	}

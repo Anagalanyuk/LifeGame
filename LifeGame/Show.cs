@@ -13,22 +13,24 @@ namespace LifeGame
 
 		public void Print()
 		{
-			int x = 1;
-			int y = 3;
+			int cursorPositionX = 1;
+			int cursorPositionY = 3;
+			char cellLive = '0';
+			char cellDeath = ' ';
 			for (int i = 0; i < universe.GetRows(); ++i)
 			{
 				for (int j = 0; j < universe.GetColumns(); ++j)
 				{
 					if(universe[i,j].GetCell() ==  CellCondition.Death)
 					{
-						Console.SetCursorPosition(x + j, y + i);
-						Console.Write(' ');
+						Console.SetCursorPosition(cursorPositionX + j, cursorPositionY + i);
+						Console.Write(cellDeath);
 					}
 					else
 					{
 						Console.ForegroundColor = ConsoleColor.Green;
-						Console.SetCursorPosition(x + j, y + i);
-						Console.Write('0');
+						Console.SetCursorPosition(cursorPositionX + j, cursorPositionY + i);
+						Console.Write(cellLive);
 						Console.ResetColor();
 					}
 				}
