@@ -5,12 +5,10 @@ namespace LifeGame
 	public sealed class CursorX
 	{
 		private char X = 'X';
-		int x;
-		int y;
+		private int x;
+		private int y;
 
-		public CursorX()
-		{
-		}
+		public CursorX() {}
 
 		public int SetX(int x) { return this.x = x; }
 

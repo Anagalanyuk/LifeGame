@@ -5,11 +5,11 @@ namespace LifeGame
 {
 	public sealed class Universe
 	{
-		int rows = 10;
-		int columns = 40;
+		private readonly int  rows = 10;
+		private readonly int columns = 40;
 		private Cell[,] universe;
-		List<Universe> history = new List<Universe>();
-		int repeatGeneration;
+		private List<Universe> history = new List<Universe>();
+		private int repeatGeneration;
 
 		public Universe()
 		{
