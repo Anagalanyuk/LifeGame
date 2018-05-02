@@ -15,6 +15,8 @@ namespace LifeGame
 			this.generation = generation;
 		}
 
+
+
 		public void KeySpace()
 		{
 			if (universe.GetrepeatGenaration() != universe.GetRows() * universe.GetColumns())
