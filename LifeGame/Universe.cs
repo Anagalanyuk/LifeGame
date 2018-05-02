@@ -13,13 +13,6 @@ namespace LifeGame
 
 		public Universe()
 		{
-			history = new List<Universe>();
-			if (rows < 0 || columns < 0)
-			{
-				throw new ArgumentOutOfRangeException();
-			}
-			else
-			{
 				rows = 10;
 				columns = 40;
 				universe = new Cell[rows, columns];
@@ -30,7 +23,6 @@ namespace LifeGame
 						universe[i, j] = new Cell();
 					}
 				}
-			}
 		}
 
 		public int GetRows()
