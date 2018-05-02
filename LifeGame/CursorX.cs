@@ -8,8 +8,6 @@ namespace LifeGame
 		private int x;
 		private int y;
 
-		public CursorX() {}
-
 		public int SetX(int x) { return this.x = x; }
 
 		public int GetX() { return x; }

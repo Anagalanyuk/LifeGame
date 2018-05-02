@@ -27,7 +27,7 @@ namespace LifeGame
 
 		public int GetColumns() { return columns; }
 
-		public List<Universe> GetList() { return history; }
+		public List<Universe> GetHistory() { return history; }
 
 		public Cell this[int rows,int columns]
 		{
