@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 namespace LifeGame
 {
 	public sealed class PlayGameKey
@@ -15,12 +14,8 @@ namespace LifeGame
 			this.generation = generation;
 		}
 
-
-
 		public void KeySpace()
-		{
-			if (universe.GetrepeatGenaration() != universe.GetRows() * universe.GetColumns())
-			{
+		{ 
 				universe.GetHistory().Add(new Universe());
 				for (int i = 0; i < universe.GetRows(); ++i)
 				{
@@ -33,290 +28,156 @@ namespace LifeGame
 				Console.SetCursorPosition(0, 0);
 				generation.Show();
 				int countLife = 0;
-				if (generation.GetCount() > 1)
+			if (generation.GetCount() > 1)
+			{
+				for (int indexRows = 0; indexRows < universe.GetRows(); ++indexRows)
 				{
-					for (int indexRows = 0; indexRows < universe.GetRows(); ++indexRows)
+					for (int indexColumns = 0; indexColumns < universe.GetColumns(); ++indexColumns)
 					{
-						for (int indexColumns = 0; indexColumns < universe.GetColumns(); ++indexColumns)
+						if (indexRows == 0 && indexColumns == 0)
 						{
-							//Upper left corner
-							if (universe.GetHistory()[generation.GetCount() - 1][indexRows, indexColumns].GetCell() == CellCondition.Death)
+							for (int rows = 0; rows < 2; ++rows)
 							{
-								if (indexRows == 0 && indexColumns == 0)
+								for (int columns = 0; columns < 2; ++columns)
 								{
-									for (int rows = 0; rows < 2; ++rows)
+									if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
 									{
-										for (int columns = 0; columns < 2; ++columns)
-										{
-											if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
-											{
-												countLife += 1;
-											}
-										}
+										countLife += 1;
 									}
 								}
-								// First rows
-								else if (indexRows == 0 && indexColumns > 0 && indexRows == 0 && indexColumns < universe.GetColumns() - 1)
-								{
-									for (int rows = indexRows; rows < 2; ++rows)
-									{
-										for (int columns = indexColumns - 1; columns < indexColumns + 2; ++columns)
-										{
-											if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
-											{
-												countLife += 1;
-											}
-										}
-									}
-								}
-								// Upper right corner
-								else if (indexRows == 0 && indexColumns == universe.GetColumns() - 1)
-								{
-									for (int rows = 0; rows < 2; ++rows)
-									{
-										for (int columns = indexColumns - 1; columns <= indexColumns; ++columns)
-										{
-											if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
-											{
-												countLife += 1;
-											}
-										}
-									}
-								}
-								//Left first columns
-								else if (indexRows > 0 && indexColumns == 0 && indexRows < universe.GetRows() - 1 && indexColumns == 0)
-								{
-									for (int rows = indexRows - 1; rows < indexRows + 2; ++rows)
-									{
-										for (int columns = 0; columns < 2; ++columns)
-										{
-											if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
-											{
-												countLife += 1;
-											}
-										}
-									}
-								}
-								//Centr
-								else if (indexRows > 0 && indexColumns < universe.GetColumns() - 1 && indexRows < universe.GetRows() - 1 && indexColumns < universe.GetColumns() - 1)
-								{
-									for (int rows = indexRows - 1; rows <= indexRows + 1; ++rows)
-									{
-										for (int columns = indexColumns - 1; columns <= indexColumns + 1; ++columns)
-										{
-											if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
-											{
-												countLife += 1;
-											}
-										}
-									}
-								}
-								//Right last columns
-								else if (indexRows > 0 && indexColumns == universe.GetColumns() - 1 && indexRows < universe.GetRows() - 1 && indexColumns == universe.GetColumns() - 1)
-								{
-									for (int rows = indexRows - 1; rows <= indexRows + 1; ++rows)
-									{
-										for (int columns = indexColumns - 1; columns <= indexColumns; ++columns)
-										{
-											if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
-											{
-												countLife += 1;
-											}
-										}
-
-									}
-								}
-								//Lower left corner
-								else if (indexRows == universe.GetRows() - 1 && indexColumns == 0)
-								{
-									for (int rows = indexRows - 1; rows <= indexRows; ++rows)
-									{
-										for (int columns = indexColumns; columns <= 1; ++columns)
-										{
-											if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
-											{
-												countLife += 1;
-											}
-										}
-									}
-								}
-								//Last rows
-								else if (indexRows == universe.GetRows() - 1 && indexColumns > 0 && indexRows == universe.GetRows() - 1 && indexColumns < universe.GetColumns() - 1)
-								{
-									for (int rows = indexRows - 1; rows <= indexRows; ++rows)
-									{
-										for (int columns = indexColumns - 1; columns <= indexColumns + 1; ++columns)
-										{
-											if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
-											{
-												countLife += 1;
-											}
-										}
-									}
-								}
-								//Lower right corner
-								else if (indexRows == universe.GetRows() - 1 && indexColumns == universe.GetColumns() - 1)
-								{
-									for (int rows = indexRows - 1; rows <= indexRows; ++rows)
-									{
-										for (int columns = indexColumns - 1; columns <= indexColumns; ++columns)
-										{
-											if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
-											{
-												countLife += 1;
-											}
-										}
-									}
-								}
-								if (countLife == 3)
-								{
-									universe[indexRows, indexColumns].ChangeState();
-								}
-								countLife = 0;
 							}
-							else
+						}
+						// First rows
+						else if (indexRows == 0 && indexColumns > 0 && indexRows == 0 && indexColumns < universe.GetColumns() - 1)
+						{
+							for (int rows = indexRows; rows < 2; ++rows)
 							{
-								//Upper left corner
-								if (indexRows == 0 && indexColumns == 0)
+								for (int columns = indexColumns - 1; columns < indexColumns + 2; ++columns)
 								{
-									for (int rows = 0; rows <= 1; ++rows)
+									if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
 									{
-										for (int columns = 0; columns <= 1; ++columns)
-										{
-											if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
-											{
-												countLife += 1;
-											}
-										}
+										countLife += 1;
 									}
 								}
-								// First rows
-								else if (indexRows == 0 && indexColumns > 0 && indexRows == 0 && indexColumns < universe.GetColumns() - 1)
-								{
-									for (int rows = indexRows; rows < 2; ++rows)
-									{
-										for (int columns = indexColumns - 1; columns < indexColumns + 2; ++columns)
-										{
-											if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
-											{
-												countLife += 1;
-											}
-										}
-									}
-								}
-								// Upper right corner
-								else if (indexRows == 0 && indexColumns == universe.GetColumns() - 1)
-								{
-									for (int rows = 0; rows < 2; ++rows)
-									{
-										for (int columns = indexColumns - 1; columns <= indexColumns; ++columns)
-										{
-											if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
-											{
-												countLife += 1;
-											}
-										}
-									}
-								}
-								//Left first columns
-								else if (indexRows > 0 && indexColumns == 0 && indexRows < universe.GetRows() - 1 && indexColumns == 0)
-								{
-									for (int rows = indexRows - 1; rows < indexRows + 2; ++rows)
-									{
-										for (int columns = 0; columns < 2; ++columns)
-										{
-											if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
-											{
-												countLife += 1;
-											}
-										}
-									}
-								}
-								//Centr
-								else if (indexRows > 0 && indexColumns < universe.GetColumns() - 1 && indexRows < universe.GetRows() - 1 && indexColumns < universe.GetColumns() - 1)
-								{
-									for (int rows = indexRows - 1; rows <= indexRows + 1; ++rows)
-									{
-										for (int columns = indexColumns - 1; columns <= indexColumns + 1; ++columns)
-										{
-											if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
-											{
-												countLife += 1;
-											}
-										}
-									}
-								}
-								//Right last columns
-								else if (indexRows > 0 && indexColumns == universe.GetColumns() - 1 && indexRows < universe.GetRows() - 1 && indexColumns == universe.GetColumns() - 1)
-								{
-									for (int rows = indexRows - 1; rows <= indexRows + 1; ++rows)
-									{
-										for (int columns = indexColumns - 1; columns <= indexColumns; ++columns)
-										{
-											if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
-											{
-												countLife += 1;
-											}
-										}
-
-									}
-								}
-								//Lower left corner
-								else if (indexRows == universe.GetRows() - 1 && indexColumns == 0)
-								{
-									for (int rows = indexRows - 1; rows <= indexRows; ++rows)
-									{
-										for (int columns = indexColumns; columns <= 1; ++columns)
-										{
-											if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
-											{
-												countLife += 1;
-											}
-										}
-									}
-								}
-								//Last rows
-								else if (indexRows == universe.GetRows() - 1 && indexColumns > 0 && indexRows == universe.GetRows() - 1 && indexColumns < universe.GetColumns() - 1)
-								{
-									for (int rows = indexRows - 1; rows <= indexRows; ++rows)
-									{
-										for (int columns = indexColumns - 1; columns <= indexColumns + 1; ++columns)
-										{
-											if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
-											{
-												countLife += 1;
-											}
-										}
-									}
-								}
-								//Lower right corner
-								else if (indexRows == universe.GetRows() - 1 && indexColumns == universe.GetColumns() - 1)
-								{
-									for (int rows = indexRows - 1; rows <= indexRows; ++rows)
-									{
-										for (int columns = indexColumns - 1; columns <= indexColumns; ++columns)
-										{
-											if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
-											{
-												countLife += 1;
-											}
-										}
-									}
-								}
-								if (countLife < 3 || countLife > 4)
-								{
-									universe[indexRows, indexColumns].ChangeState();
-								}
-								countLife = 0;
 							}
+						}
+						// Upper right corner
+						else if (indexRows == 0 && indexColumns == universe.GetColumns() - 1)
+						{
+							for (int rows = 0; rows < 2; ++rows)
+							{
+								for (int columns = indexColumns - 1; columns <= indexColumns; ++columns)
+								{
+									if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
+									{
+										countLife += 1;
+									}
+								}
+							}
+						}
+						//Left first columns
+						else if (indexRows > 0 && indexColumns == 0 && indexRows < universe.GetRows() - 1 && indexColumns == 0)
+						{
+							for (int rows = indexRows - 1; rows < indexRows + 2; ++rows)
+							{
+								for (int columns = 0; columns < 2; ++columns)
+								{
+									if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
+									{
+										countLife += 1;
+									}
+								}
+							}
+						}
+						//Centr
+						else if (indexRows > 0 && indexColumns < universe.GetColumns() - 1 && indexRows < universe.GetRows() - 1 && indexColumns < universe.GetColumns() - 1)
+						{
+							for (int rows = indexRows - 1; rows <= indexRows + 1; ++rows)
+							{
+								for (int columns = indexColumns - 1; columns <= indexColumns + 1; ++columns)
+								{
+									if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
+									{
+										countLife += 1;
+									}
+								}
+							}
+						}
+						//Right last columns
+						else if (indexRows > 0 && indexColumns == universe.GetColumns() - 1 && indexRows < universe.GetRows() - 1 && indexColumns == universe.GetColumns() - 1)
+						{
+							for (int rows = indexRows - 1; rows <= indexRows + 1; ++rows)
+							{
+								for (int columns = indexColumns - 1; columns <= indexColumns; ++columns)
+								{
+									if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
+									{
+										countLife += 1;
+									}
+								}
+
+							}
+						}
+						//Lower left corner
+						else if (indexRows == universe.GetRows() - 1 && indexColumns == 0)
+						{
+							for (int rows = indexRows - 1; rows <= indexRows; ++rows)
+							{
+								for (int columns = indexColumns; columns <= 1; ++columns)
+								{
+									if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
+									{
+										countLife += 1;
+									}
+								}
+							}
+						}
+						//Last rows
+						else if (indexRows == universe.GetRows() - 1 && indexColumns > 0 && indexRows == universe.GetRows() - 1 && indexColumns < universe.GetColumns() - 1)
+						{
+							for (int rows = indexRows - 1; rows <= indexRows; ++rows)
+							{
+								for (int columns = indexColumns - 1; columns <= indexColumns + 1; ++columns)
+								{
+									if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
+									{
+										countLife += 1;
+									}
+								}
+							}
+						}
+						//Lower right corner
+						else if (indexRows == universe.GetRows() - 1 && indexColumns == universe.GetColumns() - 1)
+						{
+							for (int rows = indexRows - 1; rows <= indexRows; ++rows)
+							{
+								for (int columns = indexColumns - 1; columns <= indexColumns; ++columns)
+								{
+									if (universe.GetHistory()[generation.GetCount() - 1][rows, columns].GetCell() == CellCondition.Live)
+									{
+										countLife += 1;
+									}
+								}
+							}
+						}
+						if (universe.GetHistory()[generation.GetCount() - 1][indexRows, indexColumns].GetCell() == CellCondition.Death)
+						{
+							if (countLife == 3)
+							{
+								universe[indexRows, indexColumns].ChangeState();
+							}
+							countLife = 0;
+						}
+						else
+						{
+							if (countLife < 3 || countLife > 4)
+							{
+								universe[indexRows, indexColumns].ChangeState();
+							}
+							countLife = 0;
 						}
 					}
 				}
-			}
-			else
-			{
-				Console.SetCursorPosition(15, 0);
-				Console.WriteLine("Game over");
 			}
 			if (generation.GetCount() > 1)
 			{

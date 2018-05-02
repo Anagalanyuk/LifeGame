@@ -52,13 +52,13 @@ namespace LifeGame
 					}
 				}
 			}
-			while (true)
+			while (universe.GetrepeatGenaration() != universe.GetRows() * universe.GetColumns())
 			{
 				Console.SetCursorPosition(0, universe.GetRows() + 4);
 				if (keyCursor == ConsoleKey.Spacebar)
 				{
 					key.KeySpace();
-					Console.SetCursorPosition(0,0);
+					Console.SetCursorPosition(0, 0);
 					generation.Show();
 					game.Print();
 					Console.SetCursorPosition(0, universe.GetRows() + 4);
@@ -66,6 +66,9 @@ namespace LifeGame
 					keyCursor = Console.ReadKey().Key;
 				}
 			}
+			Console.SetCursorPosition(15, 0);
+			Console.WriteLine("Game over");
+			Console.SetCursorPosition(0, universe.GetRows() + 4);
 		}
 	}
 }
