@@ -25,42 +25,21 @@ namespace LifeGame
 				}
 		}
 
-		public int GetRows()
-		{
-			return rows;
-		}
+		public int GetRows() { return rows; }
 
-		public int GetColumns()
-		{
-			return columns;
-		}
+		public int GetColumns() { return columns; }
 
-		public List<Universe> GetList()
-		{
-			return history;
-		}
+		public List<Universe> GetList() { return history; }
 
 		public Cell this[int rows,int columns]
 		{
-			get
-			{
-				return universe[rows, columns];
-			}
-			set
-			{
-				universe[rows, columns] = value;
-			}
+			get { return universe[rows, columns]; }
+			set { universe[rows, columns] = value; }
 		}
 
-		public int SetRepeatGeneration(int item)
-		{
-			return repeatGeneration = item; 
-		}
+		public int SetRepeatGeneration(int item) { return repeatGeneration = item; }
 
-		public int GetrepeatGenaration()
-		{
-			return repeatGeneration;
-		}
+		public int GetrepeatGenaration() { return repeatGeneration; }
 
 		public void AddrepeatGeneration()
 		{

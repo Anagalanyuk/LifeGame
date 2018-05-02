@@ -30,9 +30,6 @@ namespace LifeGame
 			return clon; 
 		}
 
-		public CellCondition GetCell()
-		{
-			return cell; 
-		}
+		public CellCondition GetCell() { return cell; }
 	}
 }

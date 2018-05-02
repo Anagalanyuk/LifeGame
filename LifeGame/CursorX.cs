@@ -15,25 +15,13 @@ namespace LifeGame
 			positinY = 0;
 		}
 
-		public int SetX(int x)
-		{
-			return positinX = x;
-		}
+		public int SetX(int x) { return positinX = x; }
 
-		public int GetX()
-		{
-			return positinX;
-		}
+		public int GetX() { return positinX; }
 
-		public int SetY(int y)
-		{
-			return positinY = y;
-		}
+		public int SetY(int y) { return positinY = y; }
 
-		public int GetY()
-		{
-			return positinY;
-		}
+		public int GetY() { return positinY; }
 
 		public void Show()
 		{
