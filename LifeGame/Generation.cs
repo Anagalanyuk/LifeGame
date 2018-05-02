@@ -5,7 +5,7 @@ namespace LifeGame
 	public sealed class Generation
 	{
 		private string generation = "Generetion: ";
-		private int countGeneration = 0;
+		private int countGeneration;
 
 		public void AddCountGeneration()
 		{

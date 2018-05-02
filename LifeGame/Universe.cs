@@ -9,7 +9,7 @@ namespace LifeGame
 		int columns;
 		private Cell[,] universe;
 		List<Universe> history;
-		int repeatGeneration = 0;
+		int repeatGeneration;
 
 		public Universe()
 		{
