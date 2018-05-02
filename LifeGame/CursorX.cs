@@ -4,15 +4,12 @@ namespace LifeGame
 {
 	public sealed class CursorX
 	{
-		private char X;
+		private char X = 'X';
 		int positinX;
 		int positinY;
 
 		public CursorX()
 		{
-			X = 'X';
-			positinX = 0;
-			positinY = 0;
 		}
 
 		public int SetX(int x) { return positinX = x; }
@@ -21,7 +18,7 @@ namespace LifeGame
 
 		public int SetY(int y) { return positinY = y; }
 
-		public int GetY() { return positinY; }
+		public int GetY() {return positinY;}
 
 		public void Show()
 		{

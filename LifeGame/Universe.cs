@@ -5,16 +5,14 @@ namespace LifeGame
 {
 	public sealed class Universe
 	{
-		int rows;
-		int columns;
+		int rows = 10;
+		int columns = 40;
 		private Cell[,] universe;
-		List<Universe> history;
+		List<Universe> history = new List<Universe>();
 		int repeatGeneration;
 
 		public Universe()
 		{
-				rows = 10;
-				columns = 40;
 				universe = new Cell[rows, columns];
 				for (int i = 0; i < rows; ++i)
 				{
