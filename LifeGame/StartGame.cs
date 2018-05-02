@@ -17,9 +17,9 @@ namespace LifeGame
 			generation = new Generation();
 			universe = new Universe();
 			game = new Show(universe);
-			border = new BounderyOfTheUniverse(universe.GetRows(),universe.GetColumns(),'+');
+			border = new BounderyOfTheUniverse(universe.GetRows(), universe.GetColumns(),'+');
 			cursor = new CursorX();
-			key = new PlayGameKey(universe, cursor,generation);
+			key = new PlayGameKey(universe, cursor, generation);
 		}
 
 		public void PlayGame()
