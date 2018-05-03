@@ -192,12 +192,12 @@ namespace LifeGame
 						{
 							if (indexHistory[rows, columns].GetCell == universe[rows, columns].GetCell)
 							{
-								universe.AddrepeatGeneration();
+								universe.AddRepeatGeneration();
 							}
 						}
 					}
 					Console.SetCursorPosition(0, universe.GetRows + 4);
-					Console.WriteLine(universe.GetrepeatGenaration);
+					Console.WriteLine(universe.GetRepeatGenaration);
 				}
 			}
 		}

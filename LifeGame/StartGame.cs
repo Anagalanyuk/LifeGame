@@ -52,7 +52,7 @@ namespace LifeGame
 					}
 				}
 			}
-			while (universe.GetrepeatGenaration != universe.GetRows * universe.GetColumns)
+			while (universe.GetRepeatGenaration != universe.GetRows * universe.GetColumns)
 			{
 				Console.SetCursorPosition(0, universe.GetRows + 4);
 				if (keyCursor == ConsoleKey.Spacebar)

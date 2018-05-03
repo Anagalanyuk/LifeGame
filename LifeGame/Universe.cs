@@ -37,9 +37,9 @@ namespace LifeGame
 
 		public int SetRepeatGeneration(int item) { return repeatGeneration = item; }
 
-		public int GetrepeatGenaration { get { return repeatGeneration; } }
+		public int GetRepeatGenaration { get { return repeatGeneration; } }
 
-		public void AddrepeatGeneration()
+		public void AddRepeatGeneration()
 		{
 			repeatGeneration += 1;
 		}
