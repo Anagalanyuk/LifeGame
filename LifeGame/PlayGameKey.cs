@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace LifeGame
 {
 	public sealed class PlayGameKey
