@@ -16,12 +16,12 @@ namespace LifeGame
 
 		public void Move()
 		{
-			if (cursor.GetX() < universe.GetColumns() - 1)
+			if (cursor.X < universe.GetColumns - 1)
 			{
-				cursor.SetX(cursor.GetX() + 1);
+				cursor.X = cursor.X + 1;
 			}
 		}
 
-		public ConsoleKey GetArrow() { return arrow; }
+		public ConsoleKey GetArrow { get { return arrow; } }
 	}
 }

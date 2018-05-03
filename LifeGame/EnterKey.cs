@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LifeGame
 {
@@ -21,9 +17,9 @@ namespace LifeGame
 
 		public void Move()
 		{
-			universe[cursor.GetY(), cursor.GetX()].ChangeState();
+			universe[cursor.Y, cursor.X].ChangeState();
 		}
 
-		public ConsoleKey GetArrow() { return arrow; }
+		public ConsoleKey GetArrow { get { return arrow; } }
 	}
 }

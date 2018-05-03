@@ -9,13 +9,16 @@ namespace LifeGame
 		private int y;
 
 
-		public int SetX(int x) { return this.x = x; }
-
-		public int GetX() { return x; }
-
-		public int SetY(int y) { return this.y = y; }
-
-		public int GetY() {return y;}
+		public int X
+		{
+			get { return x; }
+			set { x = value; }
+		}
+		public int Y
+		{
+			get { return y; }
+			set { y = value; }
+		}
 
 		public void Show()
 		{

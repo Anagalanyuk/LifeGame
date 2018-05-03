@@ -17,7 +17,7 @@ namespace LifeGame
 			generation = new Generation();
 			universe = new Universe();
 			game = new Show(universe);
-			border = new BounderyOfTheUniverse(universe.GetRows(), universe.GetColumns(), '+');
+			border = new BounderyOfTheUniverse(universe.GetRows, universe.GetColumns, '+');
 			cursor = new CursorX();
 			key = new PlayGameKey(universe, cursor, generation);
 		}
@@ -28,12 +28,12 @@ namespace LifeGame
 			border.Show();
 			game.Print();
 			cursor.Show();
-			Console.SetCursorPosition(0, universe.GetRows() + 4);
+			Console.SetCursorPosition(0, universe.GetRows + 4);
 			var keyCursor = ConsoleKey.Zoom;
 			Console.ResetColor();
 			while (keyCursor != ConsoleKey.Spacebar)
 			{
-				Console.SetCursorPosition(0, universe.GetRows() + 4);
+				Console.SetCursorPosition(0, universe.GetRows + 4);
 				keyCursor = Console.ReadKey().Key;
 				List<IMoves> moves = new List<IMoves>();
 				moves.Add(new StepRight(universe, cursor));
@@ -43,7 +43,7 @@ namespace LifeGame
 				moves.Add(new KeyEnter(universe, cursor));
 				for (int index = 0; index < moves.Count; ++index)
 				{
-					if (moves[index].GetArrow() == keyCursor)
+					if (moves[index].GetArrow == keyCursor)
 					{
 						game.Print();
 						moves[index].Move();
@@ -52,23 +52,23 @@ namespace LifeGame
 					}
 				}
 			}
-			while (universe.GetrepeatGenaration() != universe.GetRows() * universe.GetColumns())
+			while (universe.GetrepeatGenaration != universe.GetRows * universe.GetColumns)
 			{
-				Console.SetCursorPosition(0, universe.GetRows() + 4);
+				Console.SetCursorPosition(0, universe.GetRows + 4);
 				if (keyCursor == ConsoleKey.Spacebar)
 				{
 					key.KeySpace();
 					Console.SetCursorPosition(0, 0);
 					generation.Show();
 					game.Print();
-					Console.SetCursorPosition(0, universe.GetRows() + 4);
+					Console.SetCursorPosition(0, universe.GetRows + 4);
 					System.Threading.Thread.Sleep(300);
 					keyCursor = Console.ReadKey().Key;
 				}
 			}
 			Console.SetCursorPosition(15, 0);
 			Console.WriteLine("Game over");
-			Console.SetCursorPosition(0, universe.GetRows() + 4);
+			Console.SetCursorPosition(0, universe.GetRows + 4);
 		}
 	}
 }

@@ -17,12 +17,12 @@ namespace LifeGame
 
 		public void Move()
 		{
-			if (cursor.GetX() > 0)
+			if (cursor.X > 0)
 			{
-				cursor.SetX(cursor.GetX() - 1);
+				cursor.X = cursor.X - 1;
 			}
 		}
 
-		public ConsoleKey GetArrow() { return arrow; }
+		public ConsoleKey GetArrow { get { return arrow; } }
 	}
 }
