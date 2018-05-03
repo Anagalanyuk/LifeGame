@@ -5,6 +5,7 @@ namespace LifeGame
 	public interface IMoves
 	{
 		void Move();
+
 		ConsoleKey GetArrow { get; }
 	}
 }
