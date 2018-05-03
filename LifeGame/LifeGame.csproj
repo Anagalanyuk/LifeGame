@@ -45,8 +45,8 @@
     <Compile Include="BounderyOfTheUniverse.cs" />
     <Compile Include="Cell.cs" />
     <Compile Include="CellCondition.cs" />
-    <Compile Include="EnterKey.cs" />
-    <Compile Include="Moves.cs" />
+    <Compile Include="KeyEnter.cs" />
+    <Compile Include="IMoves.cs" />
     <Compile Include="Cursor.cs" />
     <Compile Include="Generation.cs" />
     <Compile Include="PlayGameKey.cs" />
