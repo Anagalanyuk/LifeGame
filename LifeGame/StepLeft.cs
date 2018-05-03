@@ -5,10 +5,10 @@ namespace LifeGame
 	public class StepLeft : IMoves
 	{
 		private Universe universe;
-		private CursorX cursor;
+		private Cursor cursor;
 		ConsoleKey arrow;
 
-		public StepLeft(Universe universe, CursorX cursor)
+		public StepLeft(Universe universe, Cursor cursor)
 		{
 			this.universe = universe;
 			this.cursor = cursor;

@@ -47,7 +47,7 @@
     <Compile Include="CellCondition.cs" />
     <Compile Include="EnterKey.cs" />
     <Compile Include="Moves.cs" />
-    <Compile Include="CursorX.cs" />
+    <Compile Include="Cursor.cs" />
     <Compile Include="Generation.cs" />
     <Compile Include="PlayGameKey.cs" />
     <Compile Include="Program.cs" />

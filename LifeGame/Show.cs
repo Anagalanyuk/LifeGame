@@ -21,7 +21,7 @@ namespace LifeGame
 			{
 				for (int j = 0; j < universe.GetColumns; ++j)
 				{
-					if(universe[i,j].GetCell ==  CellCondition.Death)
+					if(universe[i, j].GetCell ==  CellCondition.Death)
 					{
 						Console.SetCursorPosition(cursorPositionX + j, cursorPositionY + i);
 						Console.Write(cellDeath);

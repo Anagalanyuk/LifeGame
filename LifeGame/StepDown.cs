@@ -5,10 +5,10 @@ namespace LifeGame
 	public class StepDown : IMoves
 	{
 		private Universe universe;
-		private CursorX cursor;
+		private Cursor cursor;
 		public ConsoleKey arrow;
 
-		public StepDown(Universe universe, CursorX cursor)
+		public StepDown(Universe universe, Cursor cursor)
 		{
 			this.universe = universe;
 			this.cursor = cursor;

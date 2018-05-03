@@ -2,7 +2,7 @@
 
 namespace LifeGame
 {
-	public sealed class CursorX
+	public sealed class Cursor
 	{
 		private char cursor = 'X';
 		private int x;

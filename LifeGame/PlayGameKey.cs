@@ -4,10 +4,10 @@ namespace LifeGame
 	public sealed class PlayGameKey
 	{
 		private Universe universe;
-		private CursorX cursor;
+		private Cursor cursor;
 		private Generation generation;
 
-		public PlayGameKey(Universe universe, CursorX cursor, Generation generation)
+		public PlayGameKey(Universe universe, Cursor cursor, Generation generation)
 		{
 			this.universe = universe;
 			this.cursor = cursor;
@@ -15,15 +15,16 @@ namespace LifeGame
 		}
 
 		public void KeySpace()
-		{ 
-				universe.GetHistory.Add(new Universe());
+		{
+			Universe clone = new Universe();
 				for (int i = 0; i < universe.GetRows; ++i)
 				{
 					for (int j = 0; j < universe.GetColumns; ++j)
 					{
-						universe.GetHistory[generation.GetCount][i, j] = (Cell)universe[i, j].Clone();
+					clone[i, j] = (Cell)universe[i, j].Clone();
 					}
 				}
+			    universe.GetHistory.Add(clone);
 				generation.AddCountGeneration();
 				Console.SetCursorPosition(0, 0);
 				generation.Show();
@@ -40,8 +41,7 @@ namespace LifeGame
 							{
 								for (int columns = 0; columns < 2; ++columns)
 								{
-									if (universe.GetHistory[generation.GetCount - 1][rows, columns].GetCell == CellCondition.Live)
-									{
+									if (clone[rows,columns].GetCell == CellCondition.Live)							{
 										countLife += 1;
 									}
 								}
@@ -54,7 +54,7 @@ namespace LifeGame
 							{
 								for (int columns = indexColumns - 1; columns < indexColumns + 2; ++columns)
 								{
-									if (universe.GetHistory[generation.GetCount - 1][rows, columns].GetCell == CellCondition.Live)
+									if (clone[rows,columns].GetCell == CellCondition.Live)
 									{
 										countLife += 1;
 									}
@@ -68,7 +68,7 @@ namespace LifeGame
 							{
 								for (int columns = indexColumns - 1; columns <= indexColumns; ++columns)
 								{
-									if (universe.GetHistory[generation.GetCount - 1][rows, columns].GetCell == CellCondition.Live)
+									if (clone[rows,columns].GetCell == CellCondition.Live)
 									{
 										countLife += 1;
 									}
@@ -82,7 +82,7 @@ namespace LifeGame
 							{
 								for (int columns = 0; columns < 2; ++columns)
 								{
-									if (universe.GetHistory[generation.GetCount - 1][rows, columns].GetCell == CellCondition.Live)
+									if (clone[rows, columns].GetCell == CellCondition.Live)
 									{
 										countLife += 1;
 									}
@@ -96,7 +96,7 @@ namespace LifeGame
 							{
 								for (int columns = indexColumns - 1; columns <= indexColumns + 1; ++columns)
 								{
-									if (universe.GetHistory[generation.GetCount - 1][rows, columns].GetCell == CellCondition.Live)
+									if (clone[rows, columns].GetCell == CellCondition.Live)
 									{
 										countLife += 1;
 									}
@@ -110,7 +110,7 @@ namespace LifeGame
 							{
 								for (int columns = indexColumns - 1; columns <= indexColumns; ++columns)
 								{
-									if (universe.GetHistory[generation.GetCount - 1][rows, columns].GetCell == CellCondition.Live)
+									if (clone[rows, columns].GetCell == CellCondition.Live)
 									{
 										countLife += 1;
 									}
@@ -125,7 +125,7 @@ namespace LifeGame
 							{
 								for (int columns = indexColumns; columns <= 1; ++columns)
 								{
-									if (universe.GetHistory[generation.GetCount - 1][rows, columns].GetCell == CellCondition.Live)
+									if (clone[rows, columns].GetCell == CellCondition.Live)
 									{
 										countLife += 1;
 									}
@@ -139,7 +139,7 @@ namespace LifeGame
 							{
 								for (int columns = indexColumns - 1; columns <= indexColumns + 1; ++columns)
 								{
-									if (universe.GetHistory[generation.GetCount - 1][rows, columns].GetCell == CellCondition.Live)
+									if (clone[rows, columns].GetCell == CellCondition.Live)
 									{
 										countLife += 1;
 									}
@@ -153,14 +153,14 @@ namespace LifeGame
 							{
 								for (int columns = indexColumns - 1; columns <= indexColumns; ++columns)
 								{
-									if (universe.GetHistory[generation.GetCount - 1][rows, columns].GetCell == CellCondition.Live)
+									if (clone[rows,columns].GetCell == CellCondition.Live)
 									{
 										countLife += 1;
 									}
 								}
 							}
 						}
-						if (universe.GetHistory[generation.GetCount - 1][indexRows, indexColumns].GetCell == CellCondition.Death)
+						if (clone[indexRows, indexColumns].GetCell == CellCondition.Death)
 						{
 							if (countLife == 3)
 							{
@@ -181,23 +181,21 @@ namespace LifeGame
 			}
 			if (generation.GetCount > 1)
 			{
-				for (int indexGeneration = 0; indexGeneration < generation.GetCount; ++indexGeneration)
+				foreach (Universe indexHistory in universe.GetHistory)
 				{
 					universe.SetRepeatGeneration(0);
 					for (int rows = 0; rows < universe.GetRows; ++rows)
 					{
 						for (int columns = 0; columns < universe.GetColumns; ++columns)
 						{
-							if (universe.GetHistory[indexGeneration][rows, columns].GetCell == universe[rows, columns].GetCell)
+							if (indexHistory[rows, columns].GetCell == universe[rows, columns].GetCell)
 							{
 								universe.AddrepeatGeneration();
 							}
 						}
 					}
-					if (universe.GetrepeatGenaration == universe.GetRows * universe.GetColumns)
-					{
-						indexGeneration = generation.GetCount;
-					}
+						Console.SetCursorPosition(0, universe.GetRows + 4);
+						Console.WriteLine(universe.GetrepeatGenaration);
 				}
 			}
 		}

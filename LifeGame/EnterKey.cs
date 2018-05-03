@@ -5,10 +5,10 @@ namespace LifeGame
 	public class KeyEnter : IMoves
 	{
 		private Universe universe;
-		private CursorX cursor;
+		private Cursor cursor;
 		private ConsoleKey arrow;
 
-		public KeyEnter(Universe universe, CursorX cursor)
+		public KeyEnter(Universe universe, Cursor cursor)
 		{
 			this.universe = universe;
 			this.cursor = cursor;

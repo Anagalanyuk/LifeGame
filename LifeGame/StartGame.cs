@@ -10,7 +10,7 @@ namespace LifeGame
 		private BounderyOfTheUniverse border;
 		private PlayGameKey key;
 		private Show game;
-		private CursorX cursor;
+		private Cursor cursor;
 
 		public StartGame()
 		{
@@ -18,7 +18,7 @@ namespace LifeGame
 			universe = new Universe();
 			game = new Show(universe);
 			border = new BounderyOfTheUniverse(universe.GetRows, universe.GetColumns, '+');
-			cursor = new CursorX();
+			cursor = new Cursor();
 			key = new PlayGameKey(universe, cursor, generation);
 		}
 
@@ -31,22 +31,22 @@ namespace LifeGame
 			Console.SetCursorPosition(0, universe.GetRows + 4);
 			var keyCursor = ConsoleKey.Zoom;
 			Console.ResetColor();
+			ICollection<IMoves> moves = new List<IMoves>();
+			moves.Add(new StepRight(universe, cursor));
+			moves.Add(new StepLeft(universe, cursor));
+			moves.Add(new StepDown(universe, cursor));
+			moves.Add(new StepUP(universe, cursor));
+			moves.Add(new KeyEnter(universe, cursor));
 			while (keyCursor != ConsoleKey.Spacebar)
 			{
 				Console.SetCursorPosition(0, universe.GetRows + 4);
 				keyCursor = Console.ReadKey().Key;
-				List<IMoves> moves = new List<IMoves>();
-				moves.Add(new StepRight(universe, cursor));
-				moves.Add(new StepLeft(universe, cursor));
-				moves.Add(new StepDown(universe, cursor));
-				moves.Add(new StepUP(universe, cursor));
-				moves.Add(new KeyEnter(universe, cursor));
-				for (int index = 0; index < moves.Count; ++index)
+				foreach(IMoves index in moves)
 				{
-					if (moves[index].GetArrow == keyCursor)
+					if (index.GetArrow == keyCursor)
 					{
 						game.Print();
-						moves[index].Move();
+						index.Move();
 						cursor.Show();
 						break;
 					}
@@ -69,6 +69,7 @@ namespace LifeGame
 			Console.SetCursorPosition(15, 0);
 			Console.WriteLine("Game over");
 			Console.SetCursorPosition(0, universe.GetRows + 4);
+			Console.WriteLine(universe.GetHistory.Count);
 		}
 	}
 }
