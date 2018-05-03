@@ -6,7 +6,7 @@ namespace LifeGame
 	{
 		private Universe universe;
 		private Cursor cursor;
-		public ConsoleKey arrow;
+		private ConsoleKey arrow;
 
 		public StepDown(Universe universe, Cursor cursor)
 		{
