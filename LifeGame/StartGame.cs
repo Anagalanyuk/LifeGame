@@ -17,7 +17,7 @@ namespace LifeGame
 			generation = new Generation();
 			universe = new Universe();
 			game = new Show(universe);
-			border = new BounderyOfTheUniverse(universe.GetRows, universe.GetColumns, '+');
+			border = new BounderyOfTheUniverse(universe.Rows, universe.Columns, '+');
 			cursor = new Cursor();
 			key = new PlayGameKey(universe, cursor, generation);
 		}
@@ -28,7 +28,7 @@ namespace LifeGame
 			border.Show();
 			game.Print();
 			cursor.Show();
-			Console.SetCursorPosition(0, universe.GetRows + 4);
+			Console.SetCursorPosition(0, universe.Rows + 4);
 			var keyCursor = ConsoleKey.Zoom;
 			Console.ResetColor();
 			ICollection<IMoves> moves = new List<IMoves>();
@@ -39,11 +39,11 @@ namespace LifeGame
 			moves.Add(new KeyEnter(universe, cursor));
 			while (keyCursor != ConsoleKey.Spacebar)
 			{
-				Console.SetCursorPosition(0, universe.GetRows + 4);
+				Console.SetCursorPosition(0, universe.Rows + 4);
 				keyCursor = Console.ReadKey().Key;
 				foreach(IMoves index in moves)
 				{
-					if (index.GetArrow == keyCursor)
+					if (index.Arrow == keyCursor)
 					{
 						game.Print();
 						index.Move();
@@ -52,24 +52,24 @@ namespace LifeGame
 					}
 				}
 			}
-			while (universe.GetRepeatGenaration != universe.GetRows * universe.GetColumns)
+			while (universe.RepeatGenaration != universe.Rows * universe.Columns)
 			{
-				Console.SetCursorPosition(0, universe.GetRows + 4);
+				Console.SetCursorPosition(0, universe.Rows + 4);
 				if (keyCursor == ConsoleKey.Spacebar)
 				{
 					key.KeySpace();
 					Console.SetCursorPosition(0, 0);
 					generation.Show();
 					game.Print();
-					Console.SetCursorPosition(0, universe.GetRows + 4);
+					Console.SetCursorPosition(0, universe.Rows + 4);
 					System.Threading.Thread.Sleep(300);
 					keyCursor = Console.ReadKey().Key;
 				}
 			}
 			Console.SetCursorPosition(15, 0);
 			Console.WriteLine("Game over");
-			Console.SetCursorPosition(0, universe.GetRows + 4);
-			Console.WriteLine(universe.GetHistory.Count);
+			Console.SetCursorPosition(0, universe.Rows + 4);
+			Console.WriteLine(universe.History.Count);
 		}
 	}
 }

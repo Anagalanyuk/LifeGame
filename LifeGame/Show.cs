@@ -17,11 +17,11 @@ namespace LifeGame
 			int cursorPositionY = 3;
 			char cellLive = '0';
 			char cellDeath = ' ';
-			for (int i = 0; i < universe.GetRows; ++i)
+			for (int i = 0; i < universe.Rows; ++i)
 			{
-				for (int j = 0; j < universe.GetColumns; ++j)
+				for (int j = 0; j < universe.Columns; ++j)
 				{
-					if(universe[i, j].GetCell ==  CellCondition.Death)
+					if(universe[i, j].Conditions ==  CellCondition.Death)
 					{
 						Console.SetCursorPosition(cursorPositionX + j, cursorPositionY + i);
 						Console.Write(cellDeath);

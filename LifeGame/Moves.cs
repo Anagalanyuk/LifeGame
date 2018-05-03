@@ -6,6 +6,6 @@ namespace LifeGame
 	{
 		void Move();
 
-		ConsoleKey GetArrow { get; }
+		ConsoleKey Arrow { get; }
 	}
 }

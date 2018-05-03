@@ -18,23 +18,23 @@ namespace LifeGame
 		public void KeySpace()
 		{
 			Universe clone = new Universe();
-			for (int i = 0; i < universe.GetRows; ++i)
+			for (int i = 0; i < universe.Rows; ++i)
 			{
-				for (int j = 0; j < universe.GetColumns; ++j)
+				for (int j = 0; j < universe.Columns; ++j)
 				{
 					clone[i, j] = (Cell)universe[i, j].Clone();
 				}
 			}
-			universe.GetHistory.Add(clone);
+			universe.History.Add(clone);
 			generation.AddCountGeneration();
 			Console.SetCursorPosition(0, 0);
 			generation.Show();
 			int countLife = 0;
-			if (generation.GetCount > 1)
+			if (generation.Count > 1)
 			{
-				for (int indexRows = 0; indexRows < universe.GetRows; ++indexRows)
+				for (int indexRows = 0; indexRows < universe.Rows; ++indexRows)
 				{
-					for (int indexColumns = 0; indexColumns < universe.GetColumns; ++indexColumns)
+					for (int indexColumns = 0; indexColumns < universe.Columns; ++indexColumns)
 					{
 						if (indexRows == 0 && indexColumns == 0)
 						{
@@ -42,7 +42,7 @@ namespace LifeGame
 							{
 								for (int columns = 0; columns < 2; ++columns)
 								{
-									if (clone[rows, columns].GetCell == CellCondition.Live)
+									if (clone[rows, columns].Conditions == CellCondition.Live)
 									{
 										countLife += 1;
 									}
@@ -50,13 +50,13 @@ namespace LifeGame
 							}
 						}
 						// First rows
-						else if (indexRows == 0 && indexColumns > 0 && indexRows == 0 && indexColumns < universe.GetColumns - 1)
+						else if (indexRows == 0 && indexColumns > 0 && indexRows == 0 && indexColumns < universe.Columns - 1)
 						{
 							for (int rows = indexRows; rows < 2; ++rows)
 							{
 								for (int columns = indexColumns - 1; columns < indexColumns + 2; ++columns)
 								{
-									if (clone[rows, columns].GetCell == CellCondition.Live)
+									if (clone[rows, columns].Conditions == CellCondition.Live)
 									{
 										countLife += 1;
 									}
@@ -64,13 +64,13 @@ namespace LifeGame
 							}
 						}
 						// Upper right corner
-						else if (indexRows == 0 && indexColumns == universe.GetColumns - 1)
+						else if (indexRows == 0 && indexColumns == universe.Columns - 1)
 						{
 							for (int rows = 0; rows < 2; ++rows)
 							{
 								for (int columns = indexColumns - 1; columns <= indexColumns; ++columns)
 								{
-									if (clone[rows, columns].GetCell == CellCondition.Live)
+									if (clone[rows, columns].Conditions == CellCondition.Live)
 									{
 										countLife += 1;
 									}
@@ -78,13 +78,13 @@ namespace LifeGame
 							}
 						}
 						//Left first columns
-						else if (indexRows > 0 && indexColumns == 0 && indexRows < universe.GetRows - 1 && indexColumns == 0)
+						else if (indexRows > 0 && indexColumns == 0 && indexRows < universe.Rows - 1 && indexColumns == 0)
 						{
 							for (int rows = indexRows - 1; rows < indexRows + 2; ++rows)
 							{
 								for (int columns = 0; columns < 2; ++columns)
 								{
-									if (clone[rows, columns].GetCell == CellCondition.Live)
+									if (clone[rows, columns].Conditions == CellCondition.Live)
 									{
 										countLife += 1;
 									}
@@ -92,13 +92,13 @@ namespace LifeGame
 							}
 						}
 						//Centr
-						else if (indexRows > 0 && indexColumns < universe.GetColumns - 1 && indexRows < universe.GetRows - 1 && indexColumns < universe.GetColumns - 1)
+						else if (indexRows > 0 && indexColumns < universe.Columns - 1 && indexRows < universe.Rows - 1 && indexColumns < universe.Columns - 1)
 						{
 							for (int rows = indexRows - 1; rows <= indexRows + 1; ++rows)
 							{
 								for (int columns = indexColumns - 1; columns <= indexColumns + 1; ++columns)
 								{
-									if (clone[rows, columns].GetCell == CellCondition.Live)
+									if (clone[rows, columns].Conditions == CellCondition.Live)
 									{
 										countLife += 1;
 									}
@@ -106,13 +106,13 @@ namespace LifeGame
 							}
 						}
 						//Right last columns
-						else if (indexRows > 0 && indexColumns == universe.GetColumns - 1 && indexRows < universe.GetRows - 1 && indexColumns == universe.GetColumns - 1)
+						else if (indexRows > 0 && indexColumns == universe.Columns - 1 && indexRows < universe.Rows - 1 && indexColumns == universe.Columns - 1)
 						{
 							for (int rows = indexRows - 1; rows <= indexRows + 1; ++rows)
 							{
 								for (int columns = indexColumns - 1; columns <= indexColumns; ++columns)
 								{
-									if (clone[rows, columns].GetCell == CellCondition.Live)
+									if (clone[rows, columns].Conditions == CellCondition.Live)
 									{
 										countLife += 1;
 									}
@@ -121,13 +121,13 @@ namespace LifeGame
 							}
 						}
 						//Lower left corner
-						else if (indexRows == universe.GetRows - 1 && indexColumns == 0)
+						else if (indexRows == universe.Rows - 1 && indexColumns == 0)
 						{
 							for (int rows = indexRows - 1; rows <= indexRows; ++rows)
 							{
 								for (int columns = indexColumns; columns <= 1; ++columns)
 								{
-									if (clone[rows, columns].GetCell == CellCondition.Live)
+									if (clone[rows, columns].Conditions == CellCondition.Live)
 									{
 										countLife += 1;
 									}
@@ -135,13 +135,13 @@ namespace LifeGame
 							}
 						}
 						//Last rows
-						else if (indexRows == universe.GetRows - 1 && indexColumns > 0 && indexRows == universe.GetRows - 1 && indexColumns < universe.GetColumns - 1)
+						else if (indexRows == universe.Rows - 1 && indexColumns > 0 && indexRows == universe.Rows - 1 && indexColumns < universe.Columns - 1)
 						{
 							for (int rows = indexRows - 1; rows <= indexRows; ++rows)
 							{
 								for (int columns = indexColumns - 1; columns <= indexColumns + 1; ++columns)
 								{
-									if (clone[rows, columns].GetCell == CellCondition.Live)
+									if (clone[rows, columns].Conditions == CellCondition.Live)
 									{
 										countLife += 1;
 									}
@@ -149,20 +149,20 @@ namespace LifeGame
 							}
 						}
 						//Lower right corner
-						else if (indexRows == universe.GetRows - 1 && indexColumns == universe.GetColumns - 1)
+						else if (indexRows == universe.Rows - 1 && indexColumns == universe.Columns - 1)
 						{
 							for (int rows = indexRows - 1; rows <= indexRows; ++rows)
 							{
 								for (int columns = indexColumns - 1; columns <= indexColumns; ++columns)
 								{
-									if (clone[rows, columns].GetCell == CellCondition.Live)
+									if (clone[rows, columns].Conditions == CellCondition.Live)
 									{
 										countLife += 1;
 									}
 								}
 							}
 						}
-						if (clone[indexRows, indexColumns].GetCell == CellCondition.Death)
+						if (clone[indexRows, indexColumns].Conditions == CellCondition.Death)
 						{
 							if (countLife == 3)
 							{
@@ -181,23 +181,23 @@ namespace LifeGame
 					}
 				}
 			}
-			if (generation.GetCount > 1)
+			if (generation.Count > 1)
 			{
-				foreach (Universe indexHistory in universe.GetHistory)
+				foreach (Universe indexHistory in universe.History)
 				{
 					universe.SetRepeatGeneration(0);
-					for (int rows = 0; rows < universe.GetRows; ++rows)
+					for (int rows = 0; rows < universe.Rows; ++rows)
 					{
-						for (int columns = 0; columns < universe.GetColumns; ++columns)
+						for (int columns = 0; columns < universe.Columns; ++columns)
 						{
-							if (indexHistory[rows, columns].GetCell == universe[rows, columns].GetCell)
+							if (indexHistory[rows, columns].Conditions == universe[rows, columns].Conditions)
 							{
 								universe.AddRepeatGeneration();
 							}
 						}
 					}
-					Console.SetCursorPosition(0, universe.GetRows + 4);
-					Console.WriteLine(universe.GetRepeatGenaration);
+					Console.SetCursorPosition(0, universe.Rows + 4);
+					Console.WriteLine(universe.RepeatGenaration);
 				}
 			}
 		}

@@ -23,6 +23,6 @@ namespace LifeGame
 			}
 		}
 
-		public ConsoleKey GetArrow { get { return arrow; } }
+		public ConsoleKey Arrow { get { return arrow; } }
 	}
 }

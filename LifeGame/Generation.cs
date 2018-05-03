@@ -12,7 +12,7 @@ namespace LifeGame
 			countGeneration += 1;
 		}
 
-		public int GetCount{ get { return countGeneration; } }
+		public int Count{ get { return countGeneration; } }
 
 		public void Show()
 		{
