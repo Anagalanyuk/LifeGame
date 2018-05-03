@@ -1,5 +1,4 @@
-﻿using LifeGame;
-using System;
+﻿using System;
 
 namespace LifeGame
 {

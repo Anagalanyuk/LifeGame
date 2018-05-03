@@ -18,18 +18,18 @@ namespace LifeGame
 		public void KeySpace()
 		{
 			Universe clone = new Universe();
-				for (int i = 0; i < universe.GetRows; ++i)
+			for (int i = 0; i < universe.GetRows; ++i)
+			{
+				for (int j = 0; j < universe.GetColumns; ++j)
 				{
-					for (int j = 0; j < universe.GetColumns; ++j)
-					{
 					clone[i, j] = (Cell)universe[i, j].Clone();
-					}
 				}
-			    universe.GetHistory.Add(clone);
-				generation.AddCountGeneration();
-				Console.SetCursorPosition(0, 0);
-				generation.Show();
-				int countLife = 0;
+			}
+			universe.GetHistory.Add(clone);
+			generation.AddCountGeneration();
+			Console.SetCursorPosition(0, 0);
+			generation.Show();
+			int countLife = 0;
 			if (generation.GetCount > 1)
 			{
 				for (int indexRows = 0; indexRows < universe.GetRows; ++indexRows)
@@ -42,7 +42,8 @@ namespace LifeGame
 							{
 								for (int columns = 0; columns < 2; ++columns)
 								{
-									if (clone[rows,columns].GetCell == CellCondition.Live)							{
+									if (clone[rows, columns].GetCell == CellCondition.Live)
+									{
 										countLife += 1;
 									}
 								}
@@ -55,7 +56,7 @@ namespace LifeGame
 							{
 								for (int columns = indexColumns - 1; columns < indexColumns + 2; ++columns)
 								{
-									if (clone[rows,columns].GetCell == CellCondition.Live)
+									if (clone[rows, columns].GetCell == CellCondition.Live)
 									{
 										countLife += 1;
 									}
@@ -69,7 +70,7 @@ namespace LifeGame
 							{
 								for (int columns = indexColumns - 1; columns <= indexColumns; ++columns)
 								{
-									if (clone[rows,columns].GetCell == CellCondition.Live)
+									if (clone[rows, columns].GetCell == CellCondition.Live)
 									{
 										countLife += 1;
 									}
@@ -154,7 +155,7 @@ namespace LifeGame
 							{
 								for (int columns = indexColumns - 1; columns <= indexColumns; ++columns)
 								{
-									if (clone[rows,columns].GetCell == CellCondition.Live)
+									if (clone[rows, columns].GetCell == CellCondition.Live)
 									{
 										countLife += 1;
 									}
@@ -195,8 +196,8 @@ namespace LifeGame
 							}
 						}
 					}
-						Console.SetCursorPosition(0, universe.GetRows + 4);
-						Console.WriteLine(universe.GetrepeatGenaration);
+					Console.SetCursorPosition(0, universe.GetRows + 4);
+					Console.WriteLine(universe.GetrepeatGenaration);
 				}
 			}
 		}
