@@ -21,8 +21,7 @@ namespace LifeGame
 		{
 			Console.Write($"{ generation }");
 			Console.ForegroundColor = ConsoleColor.Blue;
-			Console.WriteLine(countGeneration);
-			Console.WriteLine();
+			Console.Write(countGeneration);
 			Console.ResetColor();
 		}
 	}

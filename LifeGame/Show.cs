@@ -14,7 +14,7 @@ namespace LifeGame
 		public void Print()
 		{
 			int cursorPositionX = 1;
-			int cursorPositionY = 3;
+			int cursorPositionY = 2;
 			char cellLive = '0';
 			char cellDeath = ' ';
 			for (int i = 0; i < universe.Rows; ++i)

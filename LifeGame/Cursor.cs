@@ -23,7 +23,7 @@ namespace LifeGame
 		public void Show()
 		{
 			int displacementX = 1;
-			int displacementY = 3;
+			int displacementY = 2;
 			Console.SetCursorPosition(x + displacementX, y + displacementY);
 			Console.ForegroundColor = ConsoleColor.Red;
 			Console.Write(cursor);

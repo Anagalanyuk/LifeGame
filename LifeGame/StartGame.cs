@@ -29,7 +29,7 @@ namespace LifeGame
 			border.Show();
 			game.Print();
 			cursor.Show();
-			Console.SetCursorPosition(0, universe.Rows + 4);
+			Console.SetCursorPosition(0, universe.Rows + 3);
 			var keyCursor = ConsoleKey.Zoom;
 			Console.ResetColor();
 			ICollection<IMoves> moves = new List<IMoves>();
@@ -40,7 +40,7 @@ namespace LifeGame
 			moves.Add(new KeyEnter(universe, cursor));
 			while (keyCursor != ConsoleKey.Spacebar)
 			{
-				Console.SetCursorPosition(0, universe.Rows + 4);
+				Console.SetCursorPosition(0, universe.Rows + 3);
 				keyCursor = Console.ReadKey().Key;
 				foreach (IMoves index in moves)
 				{
@@ -55,21 +55,21 @@ namespace LifeGame
 			}
 			while (universe.RepeatGeneration != (universe.Rows * universe.Columns))
 			{
-				Console.SetCursorPosition(0, universe.Rows + 4);
+				Console.SetCursorPosition(0, universe.Rows + 3);
 				if (keyCursor == ConsoleKey.Spacebar)
 				{
 					key.KeySpace();
 					Console.SetCursorPosition(0, 0);
 					generation.Show();
 					game.Print();
-					Console.SetCursorPosition(0, universe.Rows + 4);
+					Console.SetCursorPosition(0, universe.Rows + 3);
 					System.Threading.Thread.Sleep(300);
 					keyCursor = Console.ReadKey().Key;
 				}
 			}
 			Console.SetCursorPosition(15, 0);
 			Console.WriteLine("Game over");
-			Console.SetCursorPosition(0, universe.Rows + 4);
+			Console.SetCursorPosition(0, universe.Rows + 3);
 		}
 	}
 }
