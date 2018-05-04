@@ -44,14 +44,10 @@ namespace LifeGame
 			set { universe[rows, columns] = value; }
 		}
 
-		public int SetRepeatGeneration
-		{
-			set { repeatGeneration = value; }
-		}
-
-		public int RepeatGenaration
+		public int RepeatGeneration
 		{
 			get { return repeatGeneration; }
+			set { repeatGeneration = value; }
 		}
 
 		public void AddRepeatGeneration()

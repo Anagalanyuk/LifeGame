@@ -53,7 +53,7 @@ namespace LifeGame
 					}
 				}
 			}
-			while (universe.RepeatGenaration != universe.Rows * universe.Columns)
+			while (universe.RepeatGeneration != (universe.Rows * universe.Columns))
 			{
 				Console.SetCursorPosition(0, universe.Rows + 4);
 				if (keyCursor == ConsoleKey.Spacebar)
@@ -70,7 +70,6 @@ namespace LifeGame
 			Console.SetCursorPosition(15, 0);
 			Console.WriteLine("Game over");
 			Console.SetCursorPosition(0, universe.Rows + 4);
-			Console.WriteLine(universe.History.Count);
 		}
 	}
 }
