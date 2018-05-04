@@ -22,12 +22,21 @@ namespace LifeGame
 			}
 		}
 
-		public int Rows { get { return rows; } }
+		public int Rows
+		{
+			get { return rows; }
+		}
 
-		public int Columns { get { return columns; } }
+		public int Columns
+		{
+			get { return columns; }
+		}
 
 
-		public ICollection<Universe> History { get { return history; } }
+		public ICollection<Universe> History
+		{
+			get { return history; }
+		}
 
 		public Cell this[int rows,int columns]
 		{
@@ -35,9 +44,15 @@ namespace LifeGame
 			set { universe[rows, columns] = value; }
 		}
 
-		public int SetRepeatGeneration { set { repeatGeneration = value; } }
+		public int SetRepeatGeneration
+		{
+			set { repeatGeneration = value; }
+		}
 
-		public int RepeatGenaration { get { return repeatGeneration; } }
+		public int RepeatGenaration
+		{
+			get { return repeatGeneration; }
+		}
 
 		public void AddRepeatGeneration()
 		{

@@ -20,6 +20,9 @@ namespace LifeGame
 			universe[cursor.Y, cursor.X].ChangeState();
 		}
 
-		public ConsoleKey Arrow { get { return arrow; } }
+		public ConsoleKey Arrow
+		{
+			get { return arrow; }
+		}
 	}
 }
