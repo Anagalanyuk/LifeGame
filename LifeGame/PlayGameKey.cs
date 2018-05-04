@@ -185,7 +185,6 @@ namespace LifeGame
 			{
 				foreach (Universe indexHistory in universe.History)
 				{
-					universe.SetRepeatGeneration = 0;
 					for (int rows = 0; rows < universe.Rows; ++rows)
 					{
 						for (int columns = 0; columns < universe.Columns; ++columns)
@@ -198,6 +197,8 @@ namespace LifeGame
 					}
 					Console.SetCursorPosition(0, universe.Rows + 4);
 					Console.WriteLine(universe.RepeatGenaration);
+					universe.SetRepeatGeneration = 0;
+
 				}
 			}
 		}

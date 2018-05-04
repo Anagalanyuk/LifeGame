@@ -12,14 +12,14 @@ namespace LifeGame
 
 		public Universe()
 		{
-				universe = new Cell[rows, columns];
-				for (int i = 0; i < rows; ++i)
+			universe = new Cell[rows, columns];
+			for (int i = 0; i < rows; ++i)
+			{
+				for (int j = 0; j < columns; ++j)
 				{
-					for (int j = 0; j < columns; ++j)
-					{
-						universe[i, j] = new Cell();
-					}
+					universe[i, j] = new Cell();
 				}
+			}
 		}
 
 		public int Rows { get { return rows; } }
