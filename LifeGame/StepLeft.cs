@@ -6,7 +6,7 @@ namespace LifeGame
 	{
 		private Universe universe;
 		private Cursor cursor;
-		ConsoleKey arrow;
+		private ConsoleKey arrow;
 
 		public StepLeft(Universe universe, Cursor cursor)
 		{
