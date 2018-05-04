@@ -32,7 +32,6 @@ namespace LifeGame
 			get { return columns; }
 		}
 
-
 		public ICollection<Universe> History
 		{
 			get { return history; }

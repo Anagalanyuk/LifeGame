@@ -50,7 +50,7 @@ namespace LifeGame
 							}
 						}
 						// First rows
-						else if (indexRows == 0 && indexColumns > 0 && indexRows == 0 && indexColumns < universe.Columns - 1)
+						else if (indexRows == 0 && indexColumns < universe.Columns - 1 )
 						{
 							for (int rows = indexRows; rows < 2; ++rows)
 							{
@@ -62,10 +62,6 @@ namespace LifeGame
 									}
 								}
 							}
-						}
-						// Upper right corner
-						else if (indexRows == 0 && indexColumns == universe.Columns - 1)
-						{
 							for (int rows = 0; rows < 2; ++rows)
 							{
 								for (int columns = indexColumns - 1; columns <= indexColumns; ++columns)
@@ -76,7 +72,21 @@ namespace LifeGame
 									}
 								}
 							}
-						}
+							}
+						// Upper right corner
+						//else if (indexRows == 0 && indexColumns == universe.Columns - 1)
+						//{
+						//	for (int rows = 0; rows < 2; ++rows)
+						//	{
+						//		for (int columns = indexColumns - 1; columns <= indexColumns; ++columns)
+						//		{
+						//			if (clone[rows, columns].Conditions == CellCondition.Live)
+						//			{
+						//				countLife += 1;
+						//			}
+						//		}
+						//	}
+						//}
 						//Left first columns
 						else if (indexRows > 0 && indexColumns == 0 && indexRows < universe.Rows - 1 && indexColumns == 0)
 						{
