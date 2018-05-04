@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace LifeGame
 {
-	public  sealed class StartGame
+	public sealed class StartGame
 	{
 		private Generation generation;
 		private Universe universe;

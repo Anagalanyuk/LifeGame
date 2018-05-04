@@ -2,7 +2,7 @@
 
 namespace LifeGame
 {
-	public sealed  class Cell : ICloneable
+	public sealed class Cell : ICloneable
 	{
 		private CellCondition cell; 
 
