@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-namespace LifeGame
+﻿namespace LifeGame
 
 {
 	internal class Program
