@@ -64,7 +64,6 @@ namespace LifeGame
 					game.Print();
 					Console.SetCursorPosition(0, universe.Rows + 3);
 					System.Threading.Thread.Sleep(300);
-					keyCursor = Console.ReadKey().Key;
 				}
 			}
 			Console.SetCursorPosition(15, 0);
