@@ -2,13 +2,13 @@
 
 namespace LifeGame
 {
-	public class StepUP : IMoves
+	public class StepUp : IMoves
 	{
 		private Universe universe;
 		private Cursor cursor;
 		private ConsoleKey arrow;
 
-		public StepUP(Universe universe, Cursor cursor)
+		public StepUp(Universe universe, Cursor cursor)
 		{
 			this.universe = universe;
 			this.cursor = cursor;

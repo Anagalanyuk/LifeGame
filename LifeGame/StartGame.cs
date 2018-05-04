@@ -36,7 +36,7 @@ namespace LifeGame
 			moves.Add(new StepRight(universe, cursor));
 			moves.Add(new StepLeft(universe, cursor));
 			moves.Add(new StepDown(universe, cursor));
-			moves.Add(new StepUP(universe, cursor));
+			moves.Add(new StepUp(universe, cursor));
 			moves.Add(new KeyEnter(universe, cursor));
 			while (keyCursor != ConsoleKey.Spacebar)
 			{
