@@ -41,7 +41,7 @@ namespace LifeGame
 			{
 				Console.SetCursorPosition(0, universe.Rows + 4);
 				keyCursor = Console.ReadKey().Key;
-				foreach(IMoves index in moves)
+				foreach (IMoves index in moves)
 				{
 					if (index.Arrow == keyCursor)
 					{
