@@ -35,7 +35,7 @@ namespace LifeGame
 			set { universe[rows, columns] = value; }
 		}
 
-		public int SetRepeatGeneration(int item) { return repeatGeneration = item; }
+		public int SetRepeatGeneration { set { repeatGeneration = value; } }
 
 		public int RepeatGenaration { get { return repeatGeneration; } }
 

@@ -185,7 +185,7 @@ namespace LifeGame
 			{
 				foreach (Universe indexHistory in universe.History)
 				{
-					universe.SetRepeatGeneration(0);
+					universe.SetRepeatGeneration = 0;
 					for (int rows = 0; rows < universe.Rows; ++rows)
 					{
 						for (int columns = 0; columns < universe.Columns; ++columns)
