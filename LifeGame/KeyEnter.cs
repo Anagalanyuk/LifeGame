@@ -4,25 +4,24 @@ namespace LifeGame
 {
 	public class KeyEnter : IMoves
 	{
-		private Universe universe;
-		private Cursor cursor;
 		private ConsoleKey arrow;
+		private Cursor cursor;
+		private Universe universe;
 
 		public KeyEnter(Universe universe, Cursor cursor)
 		{
-			this.universe = universe;
-			this.cursor = cursor;
 			arrow = ConsoleKey.Enter;
+			this.cursor = cursor;
+			this.universe = universe;
+		}
+		public ConsoleKey Arrow
+		{
+			get { return arrow; }
 		}
 
 		public void Move()
 		{
 			universe[cursor.Y, cursor.X].ChangeState();
-		}
-
-		public ConsoleKey Arrow
-		{
-			get { return arrow; }
 		}
 	}
 }

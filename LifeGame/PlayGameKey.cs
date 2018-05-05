@@ -4,19 +4,20 @@ namespace LifeGame
 {
 	public sealed class PlayGameKey
 	{
-		private Universe universe;
 		private Cursor cursor;
 		private Generation generation;
+		private Universe universe;
 
 		public PlayGameKey(Universe universe, Cursor cursor, Generation generation)
 		{
-			this.universe = universe;
 			this.cursor = cursor;
 			this.generation = generation;
+			this.universe = universe;
 		}
 
 		public void KeySpace()
 		{
+			int countLife = 0;
 			Universe clone = new Universe();
 			for (int i = 0; i < universe.Rows; ++i)
 			{
@@ -29,7 +30,6 @@ namespace LifeGame
 			generation.AddCountGeneration();
 			Console.SetCursorPosition(0, 0);
 			generation.Show();
-			int countLife = 0;
 			if (generation.Count > 1)
 			{
 				for (int indexRows = 0; indexRows < universe.Rows; ++indexRows)

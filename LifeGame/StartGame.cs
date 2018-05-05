@@ -6,20 +6,20 @@ namespace LifeGame
 {
 	public sealed class StartGame
 	{
-		private Generation generation;
-		private Universe universe;
 		private BounderyOfTheUniverse border;
-		private PlayGameKey key;
-		private Show game;
 		private Cursor cursor;
+		private Generation generation;
+		private Show game;
+		private PlayGameKey key;
+		private Universe universe;
 
 		public StartGame()
 		{
-			generation = new Generation();
 			universe = new Universe();
-			game = new Show(universe);
 			border = new BounderyOfTheUniverse(universe.Rows, universe.Columns, '+');
 			cursor = new Cursor();
+			generation = new Generation();
+			game = new Show(universe);
 			key = new PlayGameKey(universe, cursor, generation);
 		}
 

@@ -4,17 +4,17 @@ namespace LifeGame
 {
 	public sealed class Generation
 	{
-		private string generation = "Generetion: ";
 		private int countGeneration;
-
-		public void AddCountGeneration()
-		{
-			countGeneration += 1;
-		}
+		private string generation = "Generetion: ";
 
 		public int Count
 		{
 			get { return countGeneration; }
+		}
+
+		public void AddCountGeneration()
+		{
+			countGeneration += 1;
 		}
 
 		public void Show()

@@ -4,15 +4,20 @@ namespace LifeGame
 {
 	public class StepRight : IMoves
 	{
-		private Universe universe;
-		private Cursor cursor;
 		private ConsoleKey arrow;
+		private Cursor cursor;
+		private Universe universe;
 
 		public StepRight(Universe universe, Cursor cursor)
 		{
-			this.universe = universe;
-			this.cursor = cursor;
 			arrow = ConsoleKey.RightArrow;
+			this.cursor = cursor;
+			this.universe = universe;
+		}
+
+		public ConsoleKey Arrow
+		{
+			get { return arrow; }
 		}
 
 		public void Move()
@@ -21,11 +26,6 @@ namespace LifeGame
 			{
 				cursor.X = cursor.X + 1;
 			}
-		}
-
-		public ConsoleKey Arrow
-		{
-			get { return arrow; }
 		}
 	}
 }

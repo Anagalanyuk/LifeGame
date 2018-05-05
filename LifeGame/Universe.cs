@@ -7,7 +7,7 @@ namespace LifeGame
 		private readonly int  rows = 10;
 		private readonly int columns = 40;
 		private Cell[,] universe;
-		private ICollection<Universe> history = new List<Universe>();
+		private ICollection<Universe> history;
 		private int repeatGeneration;
 
 		public Universe()
@@ -20,6 +20,7 @@ namespace LifeGame
 					universe[i, j] = new Cell();
 				}
 			}
+			history = new List<Universe>();
 		}
 
 		public int Rows
@@ -31,6 +32,7 @@ namespace LifeGame
 		{
 			get { return columns; }
 		}
+
 
 		public ICollection<Universe> History
 		{
