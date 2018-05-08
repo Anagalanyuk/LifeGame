@@ -14,6 +14,7 @@ namespace LifeGame
 			this.cursor = cursor;
 			this.universe = universe;
 		}
+
 		public ConsoleKey Arrow
 		{
 			get { return arrow; }
