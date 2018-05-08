@@ -12,6 +12,7 @@ namespace LifeGame
 		private Show game;
 		private PlayGameKey key;
 		private Universe universe;
+		int sleep = 300;
 
 		public StartGame()
 		{
@@ -21,6 +22,41 @@ namespace LifeGame
 			generation = new Generation();
 			game = new Show(universe);
 			key = new PlayGameKey(universe, cursor, generation);
+		}
+
+		public StartGame(int rows, int columns)
+		{
+			if (rows < 0 || columns < 0)
+			{
+				throw new IndexOutOfRangeException();
+			}
+			else
+			{
+				universe = new Universe(rows, columns);
+				border = new BounderyOfTheUniverse(universe.Rows, universe.Columns, '+');
+				cursor = new Cursor();
+				generation = new Generation();
+				game = new Show(universe);
+				key = new PlayGameKey(universe, cursor, generation);
+			}
+		}
+
+		public StartGame(int rows, int columns, int sleep)
+		{
+			if (rows < 0 || columns < 0 || sleep < 0)
+			{
+				throw new IndexOutOfRangeException();
+			}
+			else
+			{
+				universe = new Universe(rows, columns);
+				border = new BounderyOfTheUniverse(universe.Rows, universe.Columns, '+');
+				cursor = new Cursor();
+				generation = new Generation();
+				game = new Show(universe);
+				key = new PlayGameKey(universe, cursor, generation);
+				this.sleep = sleep;
+			}
 		}
 
 		public void PlayGame()
@@ -63,7 +99,7 @@ namespace LifeGame
 					generation.Show();
 					game.Print();
 					Console.SetCursorPosition(0, universe.Rows + 3);
-					System.Threading.Thread.Sleep(300);
+					System.Threading.Thread.Sleep(sleep);
 				}
 			}
 			Console.SetCursorPosition(15, 0);
