@@ -18,7 +18,7 @@ namespace LifeGame
 		public void KeySpace()
 		{
 			int countLife = 0;
-			Universe clone = new Universe();
+			Universe clone = new Universe(universe.Rows, universe.Columns);
 			for (int i = 0; i < universe.Rows; ++i)
 			{
 				for (int j = 0; j < universe.Columns; ++j)
@@ -36,11 +36,11 @@ namespace LifeGame
 				{
 					for (int indexColumns = 0; indexColumns < universe.Columns; ++indexColumns)
 					{
-						for(int i = indexRows - 1; i < indexRows + 2; ++i)
+						for (int i = indexRows - 1; i <= indexRows + 1; ++i)
 						{
-							for(int j = indexColumns - 1; j < indexColumns + 2; ++j)
+							for (int j = indexColumns - 1; j <= indexColumns + 1; ++j)
 							{
-								if(i >= 0 && j >= 0 && i < universe.Rows && j < universe.Columns)
+								if (i >= 0 && j >= 0 && i < universe.Rows && j < universe.Columns)
 								{
 									if (clone[i, j].Condition == CellCondition.Live)
 									{

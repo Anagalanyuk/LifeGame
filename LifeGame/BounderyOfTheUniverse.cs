@@ -27,7 +27,7 @@ namespace LifeGame
 
 			for (int leftRightBounds = 2; leftRightBounds <= length; ++leftRightBounds)
 			{
-				Console.SetCursorPosition(0 , leftRightBounds);
+				Console.SetCursorPosition(0, leftRightBounds);
 				Console.Write(border);
 				Console.SetCursorPosition(height, leftRightBounds);
 				Console.Write(border);

@@ -27,7 +27,7 @@ namespace LifeGame
 		{
 			this.rows = rows;
 			this.columns = columns;
-			universe = new Cell[this.rows, this.columns];
+			universe = new Cell[rows, columns];
 			for (int i = 0; i < rows; ++i)
 			{
 				for (int j = 0; j < columns; ++j)
@@ -64,6 +64,7 @@ namespace LifeGame
 		{
 			get { return rows; }
 		}
+
 
 		public void AddRepeatGeneration()
 		{

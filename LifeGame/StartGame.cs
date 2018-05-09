@@ -26,11 +26,6 @@ namespace LifeGame
 
 		public StartGame(int rows, int columns)
 		{
-			if (rows < 0 || columns < 0)
-			{
-				throw new IndexOutOfRangeException();
-			}
-			else
 			{
 				universe = new Universe(rows, columns);
 				border = new BounderyOfTheUniverse(universe.Rows, universe.Columns, '+');
@@ -43,20 +38,13 @@ namespace LifeGame
 
 		public StartGame(int rows, int columns, int sleep)
 		{
-			if (rows < 0 || columns < 0 || sleep < 0)
-			{
-				throw new IndexOutOfRangeException();
-			}
-			else
-			{
-				universe = new Universe(rows, columns);
-				border = new BounderyOfTheUniverse(universe.Rows, universe.Columns, '+');
-				cursor = new Cursor();
-				generation = new Generation();
-				game = new Show(universe);
-				key = new PlayGameKey(universe, cursor, generation);
-				this.sleep = sleep;
-			}
+			universe = new Universe(rows, columns);
+			border = new BounderyOfTheUniverse(universe.Rows, universe.Columns, '+');
+			cursor = new Cursor();
+			generation = new Generation();
+			game = new Show(universe);
+			key = new PlayGameKey(universe, cursor, generation);
+			this.sleep = sleep;
 		}
 
 		public void PlayGame()
@@ -65,25 +53,26 @@ namespace LifeGame
 			border.Show();
 			game.Print();
 			cursor.Show();
+			cursor.Show();
 			Console.SetCursorPosition(0, universe.Rows + 3);
 			var keyCursor = ConsoleKey.Zoom;
 			Console.ResetColor();
-			ICollection<IMoves> moves = new List<IMoves>();
-			moves.Add(new StepRight(universe, cursor));
-			moves.Add(new StepLeft(universe, cursor));
-			moves.Add(new StepDown(universe, cursor));
-			moves.Add(new StepUp(universe, cursor));
-			moves.Add(new KeyEnter(universe, cursor));
+			ICollection<IMoves> controlKeys = new List<IMoves>();
+			controlKeys.Add(new StepRight(universe, cursor));
+			controlKeys.Add(new StepLeft(universe, cursor));
+			controlKeys.Add(new StepDown(universe, cursor));
+			controlKeys.Add(new StepUp(universe, cursor));
+			controlKeys.Add(new KeyEnter(universe, cursor));
 			while (keyCursor != ConsoleKey.Spacebar)
 			{
 				Console.SetCursorPosition(0, universe.Rows + 3);
 				keyCursor = Console.ReadKey().Key;
-				foreach (IMoves index in moves)
+				foreach (IMoves key in controlKeys)
 				{
-					if (index.Arrow == keyCursor)
+					if (key.Arrow == keyCursor)
 					{
 						game.Print();
-						index.Move();
+						key.Move();
 						cursor.Show();
 						break;
 					}
