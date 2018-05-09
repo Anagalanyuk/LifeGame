@@ -43,7 +43,21 @@ namespace LifeGame
 						columns = int.Parse(weight.ToString());
 					}
 				}
-				if (columns != 0 && rows != 0 && sleep != 0)
+				if(rows > 0 && columns == 0)
+				{
+					Console.Write("Invalid arguments: ");
+					Console.ForegroundColor = ConsoleColor.Red;
+					Console.WriteLine("“Widht of the Universe was not specified.");
+					Console.ResetColor();
+				}
+				else if(rows == 0 && columns > 0)
+				{
+					Console.Write("Invalid arguments: ");
+					Console.ForegroundColor = ConsoleColor.Red;
+					Console.WriteLine("“Height of the Universe was not specified.");
+					Console.ResetColor();
+				}
+				else if (columns != 0 && rows != 0 && sleep != 0)
 				{
 					StartGame threeParametrs = new StartGame(rows, columns, sleep);
 					threeParametrs.PlayGame();
