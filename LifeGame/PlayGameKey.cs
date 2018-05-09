@@ -36,140 +36,15 @@ namespace LifeGame
 				{
 					for (int indexColumns = 0; indexColumns < universe.Columns; ++indexColumns)
 					{
-					    //firs rows
-						if (indexRows == 0 && indexColumns <= universe.Columns - 1)
+						for(int i = indexRows - 1; i < indexRows + 2; ++i)
 						{
-							//left upper corner
-							if (indexRows == 0 && indexColumns == 0)
+							for(int j = indexColumns - 1; j < indexColumns + 2; ++j)
 							{
-								for (int rows = 0; rows < 2; ++rows)
+								if(i >= 0 && j >= 0 && i < universe.Rows && j < universe.Columns)
 								{
-									for (int columns = 0; columns < 2; ++columns)
+									if (clone[i, j].Condition == CellCondition.Live)
 									{
-										if (clone[rows, columns].Condition == CellCondition.Live)
-										{
-											countLife += 1;
-										}
-									}
-								}
-							}
-							//right upper corner
-							else if (indexColumns == universe.Columns - 1)
-							{
-								for (int rows = 0; rows < 2; ++rows)
-								{
-									for (int columns = indexColumns - 1; columns <= indexColumns; ++columns)
-									{
-										if (clone[rows, columns].Condition == CellCondition.Live)
-										{
-											countLife += 1;
-										}
-									}
-								}
-							}
-							//centr
-							else
-							{
-								for (int rows = indexRows; rows < 2; ++rows)
-								{
-									for (int columns = indexColumns - 1; columns < indexColumns + 2; ++columns)
-									{
-										if (clone[rows, columns].Condition == CellCondition.Live)
-										{
-											countLife += 1;
-										}
-									}
-								}
-							}
-						}
-						//Centr
-						else if (indexRows > 0 && indexColumns <= universe.Columns - 1 && indexRows < universe.Rows - 1)
-						{
-							//first columns 
-							if (indexColumns == 0)
-							{
-								for (int rows = indexRows - 1; rows < indexRows + 2; ++rows)
-								{
-									for (int columns = 0; columns < 2; ++columns)
-									{
-										if (clone[rows, columns].Condition == CellCondition.Live)
-										{
-											countLife += 1;
-										}
-									}
-								}
-							}
-							//last columns
-							else if(indexColumns == universe.Columns - 1)
-							{
-								for (int rows = indexRows - 1; rows <= indexRows + 1; ++rows)
-								{
-									for (int columns = indexColumns - 1; columns <= indexColumns; ++columns)
-									{
-										if (clone[rows, columns].Condition == CellCondition.Live)
-										{
-											countLife += 1;
-										}
-									}
-								}
-							}
-							//centr
-							else
-							{
-								for (int rows = indexRows - 1; rows <= indexRows + 1; ++rows)
-								{
-									for (int columns = indexColumns - 1; columns <= indexColumns + 1; ++columns)
-									{
-										if (clone[rows, columns].Condition == CellCondition.Live)
-										{
-											countLife += 1;
-										}
-									}
-								}
-							}
-						}
-						//last rows
-						else if (indexRows == universe.Rows - 1 && indexColumns >= 0 && indexColumns <= universe.Columns - 1)
-						{
-							//Left down corner
-							if (indexColumns == 0)
-							{
-								for (int rows = indexRows - 1; rows <= indexRows; ++rows)
-								{
-									for (int columns = indexColumns; columns <= 1; ++columns)
-									{
-										if (clone[rows, columns].Condition == CellCondition.Live)
-										{
-											countLife += 1;
-										}
-									}
-								}
-							}
-							//right down corner
-							else if(indexColumns == universe.Columns - 1)
-							{
-								for (int rows = indexRows - 1; rows <= indexRows; ++rows)
-								{
-									for (int columns = indexColumns - 1; columns <= indexColumns; ++columns)
-									{
-										if (clone[rows, columns].Condition == CellCondition.Live)
-										{
-											countLife += 1;
-										}
-									}
-								}
-							}
-							//centr
-							else
-							{
-								for (int rows = indexRows - 1; rows <= indexRows; ++rows)
-								{
-									for (int columns = indexColumns - 1; columns <= indexColumns + 1; ++columns)
-									{
-										if (clone[rows, columns].Condition == CellCondition.Live)
-										{
-											countLife += 1;
-										}
+										countLife += 1;
 									}
 								}
 							}

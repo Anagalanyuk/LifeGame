@@ -8,11 +8,11 @@ namespace LifeGame
 	{
 		private BounderyOfTheUniverse border;
 		private Cursor cursor;
-		private Generation generation;
 		private Show game;
+		private Generation generation;
 		private PlayGameKey key;
-		private Universe universe;
 		int sleep = 300;
+		private Universe universe;
 
 		public StartGame()
 		{

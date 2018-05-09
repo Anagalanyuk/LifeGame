@@ -4,11 +4,11 @@ namespace LifeGame
 {
 	public sealed class Universe
 	{
-		private int  rows = 10;
 		private int columns = 40;
-		private Cell[,] universe;
 		private ICollection<Universe> history;
 		private int repeatGeneration;
+		private int rows = 10;
+		private Cell[,] universe;
 
 		public Universe()
 		{
@@ -27,8 +27,8 @@ namespace LifeGame
 		{
 			this.rows = rows;
 			this.columns = columns;
-			universe = new Cell[this.rows, this. columns];
-			for(int i = 0; i < rows; ++i)
+			universe = new Cell[this.rows, this.columns];
+			for (int i = 0; i < rows; ++i)
 			{
 				for (int j = 0; j < columns; ++j)
 				{
@@ -38,9 +38,10 @@ namespace LifeGame
 			history = new List<Universe>();
 		}
 
-		public int Rows
+		public Cell this[int rows, int columns]
 		{
-			get { return rows; }
+			get { return universe[rows, columns]; }
+			set { universe[rows, columns] = value; }
 		}
 
 		public int Columns
@@ -53,16 +54,15 @@ namespace LifeGame
 			get { return history; }
 		}
 
-		public Cell this[int rows, int columns]
-		{
-			get { return universe[rows, columns]; }
-			set { universe[rows, columns] = value; }
-		}
-
 		public int RepeatGeneration
 		{
 			get { return repeatGeneration; }
 			set { repeatGeneration = value; }
+		}
+
+		public int Rows
+		{
+			get { return rows; }
 		}
 
 		public void AddRepeatGeneration()

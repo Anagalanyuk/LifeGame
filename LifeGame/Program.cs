@@ -6,7 +6,7 @@ namespace LifeGame
 	{
 		internal static void Main(string[] parametrs)
 		{
-			StartGame game = new StartGame(10,10);
+			StartGame game = new StartGame();
 			game.PlayGame();
 		}
 	}

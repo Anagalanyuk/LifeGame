@@ -5,14 +5,14 @@ namespace LifeGame
 	public sealed class BounderyOfTheUniverse
 	{
 		private char border;
-		private int length = 2;
 		private int height = 1;
+		private int length = 2;
 
 		public BounderyOfTheUniverse(int length, int height, char border)
 		{
 			this.border = border;
-			this.length += length;
 			this.height += height;
+			this.length += length;
 		}
 
 		public void Show()
