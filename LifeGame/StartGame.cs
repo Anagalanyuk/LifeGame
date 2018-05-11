@@ -21,7 +21,7 @@ namespace LifeGame
 			cursor = new Cursor();
 			generation = new Generation();
 			game = new Show(universe);
-			key = new PlayGameKey(universe, cursor, generation);
+			key = new PlayGameKey(universe, generation);
 		}
 
 		public StartGame(int rows, int columns)
@@ -32,7 +32,7 @@ namespace LifeGame
 				cursor = new Cursor();
 				generation = new Generation();
 				game = new Show(universe);
-				key = new PlayGameKey(universe, cursor, generation);
+				key = new PlayGameKey(universe, generation);
 			}
 		}
 
@@ -43,7 +43,7 @@ namespace LifeGame
 			cursor = new Cursor();
 			generation = new Generation();
 			game = new Show(universe);
-			key = new PlayGameKey(universe, cursor, generation);
+			key = new PlayGameKey(universe, generation);
 			this.sleep = sleep;
 		}
 

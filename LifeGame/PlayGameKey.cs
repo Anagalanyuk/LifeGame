@@ -4,13 +4,11 @@ namespace LifeGame
 {
 	public sealed class PlayGameKey
 	{
-		private Cursor cursor;
 		private Generation generation;
 		private Universe universe;
 
-		public PlayGameKey(Universe universe, Cursor cursor, Generation generation)
+		public PlayGameKey(Universe universe, Generation generation)
 		{
-			this.cursor = cursor;
 			this.generation = generation;
 			this.universe = universe;
 		}
