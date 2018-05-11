@@ -56,7 +56,6 @@ namespace LifeGame
 						{
 							sleep = int.Parse(delay.ToString());
 						}
-
 					}
 					else if (parametr[0] == 'w')
 					{
