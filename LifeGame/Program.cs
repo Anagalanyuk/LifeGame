@@ -12,7 +12,7 @@ namespace LifeGame
 			{
 				StringBuilder delay = new StringBuilder();
 				StringBuilder height = new StringBuilder();
-				StringBuilder weight = new StringBuilder();
+				StringBuilder weidth = new StringBuilder();
 				int columns = 0;
 				int rows = 0;
 				int sleep = 0;
@@ -68,12 +68,12 @@ namespace LifeGame
 							}
 							else
 							{
-								weight.Append(parametr[i]);
+								weidth.Append(parametr[i]);
 							}
 						}
 						if (result)
 						{
-							columns = int.Parse(weight.ToString());
+							columns = int.Parse(weidth.ToString());
 						}
 					}
 				}
