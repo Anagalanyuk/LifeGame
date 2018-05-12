@@ -49,6 +49,7 @@
     <Compile Include="IMoves.cs" />
     <Compile Include="Cursor.cs" />
     <Compile Include="Generation.cs" />
+    <Compile Include="MyParse.cs" />
     <Compile Include="PlayGameKey.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

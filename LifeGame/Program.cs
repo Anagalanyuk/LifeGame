@@ -13,66 +13,20 @@ namespace LifeGame
 				int columns = 0;
 				int rows = 0;
 				int sleep = 0;
-				bool allDigits = true;
 				foreach (string parameter in parametres)
 				{
-					StringBuilder number = new StringBuilder();
-					if (parameter[0] == 'h')
+					MyParse number = new MyParse(parameter);
+					if (number.Marker == 'h')
 					{
-						for (int i = 1; i < parameter.Length; ++i)
-						{
-							if (parameter[i] < '0' || parameter[i] >= '9')
-							{
-								allDigits = false;
-								break;
-							}
-							else
-							{
-								number.Append(parameter[i]);
-							}
-						}
-						if (allDigits)
-						{
-							rows = int.Parse(number.ToString());
-						}
+						rows = number.Parse();
 					}
-					else if (parameter[0] == 's')
+					else if (number.Marker == 's')
 					{
-						for (int i = 1; i < parameter.Length; ++i)
-						{
-							if (parameter[i] < '0' || parameter[i] >= '9')
-							{
-								allDigits = false;
-								break;
-							}
-							else
-							{
-								number.Append(parameter[i]);
-							}
-						}
-						if (allDigits)
-						{
-							sleep = int.Parse(number.ToString());
-						}
+						sleep = number.Parse();
 					}
-					else if (parameter[0] == 'w')
+					else if (number.Marker == 'w')
 					{
-						for (int i = 1; i < parameter.Length; ++i)
-						{
-							if (parameter[i] < '0' || parameter[i] >= '9')
-							{
-								allDigits = false;
-								break;
-							}
-							else
-							{
-								number.Append(parameter[i]);
-							}
-						}
-						if (allDigits)
-						{
-							columns = int.Parse(number.ToString());
-						}
+						columns = number.Parse();
 					}
 				}
 				if (rows > 0 && columns == 0)
@@ -99,7 +53,7 @@ namespace LifeGame
 					StartGame twoParameters = new StartGame(rows, columns);
 					twoParameters.PlayGame();
 				}
-				else if(sleep > 0)
+				else if (sleep > 0)
 				{
 					StartGame oneParameters = new StartGame(sleep);
 					oneParameters.PlayGame();
