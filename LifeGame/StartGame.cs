@@ -24,6 +24,17 @@ namespace LifeGame
 			key = new PlayGameKey(universe, generation);
 		}
 
+		public StartGame(int sleep)
+		{
+			universe = new Universe();
+			border = new BounderyOfTheUniverse(universe.Rows, universe.Columns, '+');
+			cursor = new Cursor();
+			generation = new Generation();
+			game = new Show(universe);
+			key = new PlayGameKey(universe, generation);
+			this.sleep = sleep;
+		}
+
 		public StartGame(int rows, int columns)
 		{
 			{

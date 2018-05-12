@@ -101,6 +101,11 @@ namespace LifeGame
 					StartGame twoParameters = new StartGame(rows, columns);
 					twoParameters.PlayGame();
 				}
+				else if(sleep > 0)
+				{
+					StartGame oneParameters = new StartGame(sleep);
+					oneParameters.PlayGame();
+				}
 				else
 				{
 					StartGame byDefault = new StartGame();

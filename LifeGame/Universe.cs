@@ -22,7 +22,6 @@ namespace LifeGame
 			}
 			history = new List<Universe>();
 		}
-
 		public Universe(int rows, int columns)
 		{
 			this.rows = rows;
