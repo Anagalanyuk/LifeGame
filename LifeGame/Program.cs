@@ -16,7 +16,7 @@ namespace LifeGame
 				int columns = 0;
 				int rows = 0;
 				int sleep = 0;
-				bool result = true;
+				bool allDigits = true;
 				foreach (string parameter in parametres)
 				{
 					if (parameter[0] == 'h')
@@ -25,7 +25,7 @@ namespace LifeGame
 						{
 							if (parameter[i] < '0' || parameter[i] > '9')
 							{
-								result = false;
+								allDigits = false;
 								break;
 							}
 							else
@@ -33,7 +33,7 @@ namespace LifeGame
 								height.Append(parameter[i]);
 							}
 						}
-						if (result)
+						if (allDigits)
 						{
 							rows = int.Parse(height.ToString());
 						}
@@ -44,7 +44,7 @@ namespace LifeGame
 						{
 							if (parameter[i] < '0' || parameter[i] > '9')
 							{
-								result = false;
+								allDigits = false;
 								break;
 							}
 							else
@@ -52,7 +52,7 @@ namespace LifeGame
 								delay.Append(parameter[i]);
 							}
 						}
-						if (result)
+						if (allDigits)
 						{
 							sleep = int.Parse(delay.ToString());
 						}
@@ -63,7 +63,7 @@ namespace LifeGame
 						{
 							if (parameter[i] < '0' || parameter[i] > '9')
 							{
-								result = false;
+								allDigits = false;
 								break;
 							}
 							else
@@ -71,7 +71,7 @@ namespace LifeGame
 								weidth.Append(parameter[i]);
 							}
 						}
-						if (result)
+						if (allDigits)
 						{
 							columns = int.Parse(weidth.ToString());
 						}
