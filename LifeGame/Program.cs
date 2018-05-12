@@ -10,70 +10,68 @@ namespace LifeGame
 		{
 			if (parametres.Length != 0)
 			{
-				StringBuilder delay = new StringBuilder();
-				StringBuilder height = new StringBuilder();
-				StringBuilder weidth = new StringBuilder();
 				int columns = 0;
 				int rows = 0;
 				int sleep = 0;
 				bool allDigits = true;
 				foreach (string parameter in parametres)
 				{
+					StringBuilder number = new StringBuilder();
 					if (parameter[0] == 'h')
 					{
 						for (int i = 1; i < parameter.Length; ++i)
 						{
-							if (parameter[i] < '0' || parameter[i] > '9')
+							if (parameter[i] < '0' || parameter[i] >= '9')
 							{
 								allDigits = false;
 								break;
 							}
 							else
 							{
-								height.Append(parameter[i]);
+								number.Append(parameter[i]);
 							}
 						}
 						if (allDigits)
 						{
-							rows = int.Parse(height.ToString());
+							rows = int.Parse(number.ToString());
 						}
 					}
 					else if (parameter[0] == 's')
 					{
 						for (int i = 1; i < parameter.Length; ++i)
 						{
-							if (parameter[i] < '0' || parameter[i] > '9')
+							if (parameter[i] < '0' || parameter[i] >= '9')
 							{
 								allDigits = false;
 								break;
 							}
 							else
 							{
-								delay.Append(parameter[i]);
+								number.Append(parameter[i]);
 							}
 						}
 						if (allDigits)
 						{
-							sleep = int.Parse(delay.ToString());
+							sleep = int.Parse(number.ToString());
 						}
 					}
 					else if (parameter[0] == 'w')
 					{
 						for (int i = 1; i < parameter.Length; ++i)
 						{
-							if (parameter[i] < '0' || parameter[i] > '9')
+							if (parameter[i] < '0' || parameter[i] >= '9')
 							{
 								allDigits = false;
 								break;
 							}
 							else
 							{
-								weidth.Append(parameter[i]);
+								number.Append(parameter[i]);
 							}
 						}
 						if (allDigits)
 						{
-							columns = int.Parse(weidth.ToString());
+							columns = int.Parse(number.ToString());
 						}
 					}
 				}
