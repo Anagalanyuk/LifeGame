@@ -65,7 +65,6 @@ namespace LifeGame
 			get { return rows; }
 		}
 
-
 		public void AddRepeatGeneration()
 		{
 			repeatGeneration += 1;

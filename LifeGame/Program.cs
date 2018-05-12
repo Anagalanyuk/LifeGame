@@ -6,9 +6,9 @@ namespace LifeGame
 {
 	internal class Program
 	{
-		internal static void Main(string[] parametrs)
+		internal static void Main(string[] parametres)
 		{
-			if (parametrs.Length != 0)
+			if (parametres.Length != 0)
 			{
 				StringBuilder delay = new StringBuilder();
 				StringBuilder height = new StringBuilder();
@@ -17,20 +17,20 @@ namespace LifeGame
 				int rows = 0;
 				int sleep = 0;
 				bool result = true;
-				foreach (string parametr in parametrs)
+				foreach (string parameter in parametres)
 				{
-					if (parametr[0] == 'h')
+					if (parameter[0] == 'h')
 					{
-						for (int i = 1; i < parametr.Length; ++i)
+						for (int i = 1; i < parameter.Length; ++i)
 						{
-							if (parametr[i] < '0' || parametr[i] > '9')
+							if (parameter[i] < '0' || parameter[i] > '9')
 							{
 								result = false;
 								break;
 							}
 							else
 							{
-								height.Append(parametr[i]);
+								height.Append(parameter[i]);
 							}
 						}
 						if (result)
@@ -38,18 +38,18 @@ namespace LifeGame
 							rows = int.Parse(height.ToString());
 						}
 					}
-					else if (parametr[0] == 's')
+					else if (parameter[0] == 's')
 					{
-						for (int i = 1; i < parametr.Length; ++i)
+						for (int i = 1; i < parameter.Length; ++i)
 						{
-							if (parametr[i] < '0' || parametr[i] > '9')
+							if (parameter[i] < '0' || parameter[i] > '9')
 							{
 								result = false;
 								break;
 							}
 							else
 							{
-								delay.Append(parametr[i]);
+								delay.Append(parameter[i]);
 							}
 						}
 						if (result)
@@ -57,18 +57,18 @@ namespace LifeGame
 							sleep = int.Parse(delay.ToString());
 						}
 					}
-					else if (parametr[0] == 'w')
+					else if (parameter[0] == 'w')
 					{
-						for (int i = 1; i < parametr.Length; ++i)
+						for (int i = 1; i < parameter.Length; ++i)
 						{
-							if (parametr[i] < '0' || parametr[i] > '9')
+							if (parameter[i] < '0' || parameter[i] > '9')
 							{
 								result = false;
 								break;
 							}
 							else
 							{
-								weidth.Append(parametr[i]);
+								weidth.Append(parameter[i]);
 							}
 						}
 						if (result)
@@ -81,7 +81,7 @@ namespace LifeGame
 				{
 					Console.Write("Invalid arguments: ");
 					Console.ForegroundColor = ConsoleColor.Red;
-					Console.WriteLine("“Widht of the Universe was not specified.");
+					Console.WriteLine("“Width of the Universe was not specified.");
 					Console.ResetColor();
 				}
 				else if (rows == 0 && columns > 0)
@@ -93,8 +93,8 @@ namespace LifeGame
 				}
 				else if (columns != 0 && rows != 0 && sleep != 0)
 				{
-					StartGame threeParametrs = new StartGame(rows, columns, sleep);
-					threeParametrs.PlayGame();
+					StartGame threeParameters = new StartGame(rows, columns, sleep);
+					threeParameters.PlayGame();
 				}
 				else if (columns != 0 && rows != 0 && sleep == 0)
 				{
