@@ -6,14 +6,14 @@ namespace LifeGame
 {
 	internal class Program
 	{
-		internal static void Main(string[] parametres)
+		internal static void Main(string[] parameters)
 		{
-			if (parametres.Length != 0)
+			if (parameters.Length != 0)
 			{
 				int columns = 0;
 				int rows = 0;
 				int sleep = 0;
-				foreach (string parameter in parametres)
+				foreach (string parameter in parameters)
 				{
 					MyParse number = new MyParse(parameter);
 					if (number.Marker == 'h')
